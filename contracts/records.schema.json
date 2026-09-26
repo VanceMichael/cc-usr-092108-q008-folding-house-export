@@ -1,0 +1,582 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "折叠房跨境配置交付全链路记录",
+  "type": "object",
+  "required": [
+    "domain", "version", "products", "modules", "suppliers",
+    "service_stations", "certificates", "configuration_versions",
+    "quotes", "inquiries", "orders", "config_changes", "capacity_locks",
+    "production", "inspections", "ncrs", "containers", "shipments",
+    "damage_reports", "permits", "offline_install_records",
+    "installations", "acceptance_checks", "punch_items", "warranties", "events"
+  ],
+  "properties": {
+    "domain": {"const": "folding-house-export"},
+    "version": {"type": "integer", "minimum": 2},
+    "sample_id": {"type": "string", "minLength": 1},
+    "generated_on": {"type": "string"},
+    "note": {"type": "string"},
+
+    "products": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "kind", "folded_m", "base_weight_kg"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "kind": {"enum": ["double-wing", "capsule", "flat-pack"]},
+          "folded_m": {
+            "type": "object",
+            "required": ["length", "width", "height"],
+            "properties": {
+              "length": {"type": "number", "minimum": 0},
+              "width": {"type": "number", "minimum": 0},
+              "height": {"type": "number", "minimum": 0}
+            }
+          },
+          "expanded_area_m2": {"type": "number", "minimum": 0},
+          "base_weight_kg": {"type": "number", "minimum": 0}
+        }
+      }
+    },
+
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category", "supplier_id", "unit_price", "weight_kg", "lead_time_days"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "category": {"enum": ["electrical", "glazing", "hvac", "smart", "interior", "structure", "spare"]},
+          "supplier_id": {"type": "string"},
+          "unit_price": {"$ref": "#/$defs/money"},
+          "weight_kg": {"type": "number", "minimum": 0},
+          "lead_time_days": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+
+    "suppliers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "confirmed_capacity"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "confirmed_capacity": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["module_id", "qty", "window_start", "window_end", "confirmed_on"],
+              "properties": {
+                "module_id": {"type": "string"},
+                "qty": {"type": "integer", "minimum": 0},
+                "window_start": {"type": "string"},
+                "window_end": {"type": "string"},
+                "confirmed_on": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "service_stations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "country", "cert_access"],
+        "properties": {
+          "id": {"type": "string"},
+          "name": {"type": "string"},
+          "country": {"type": "string", "minLength": 2},
+          "cert_access": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+
+    "certificates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "countries", "issued_on", "valid_until", "doc_uri"],
+        "properties": {
+          "id": {"type": "string"},
+          "title": {"type": "string"},
+          "countries": {"type": "array", "items": {"type": "string", "minLength": 2}},
+          "issued_on": {"type": "string"},
+          "valid_until": {"type": "string"},
+          "doc_uri": {"type": "string"}
+        }
+      }
+    },
+
+    "configuration_versions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["config_id", "model_id", "version", "status", "electrical",
+                     "wind_rating", "seismic_rating", "interior_package",
+                     "modules", "smart_modules", "unit_price", "weight_kg", "lead_time_days"],
+        "properties": {
+          "config_id": {"type": "string"},
+          "model_id": {"type": "string"},
+          "version": {"type": "integer", "minimum": 1},
+          "status": {"enum": ["draft", "signed", "superseded", "rejected"]},
+          "electrical": {
+            "type": "object",
+            "required": ["standard", "voltage", "frequency", "certificate_id"],
+            "properties": {
+              "standard": {"type": "string"},
+              "voltage": {"type": "string"},
+              "frequency": {"type": "string"},
+              "certificate_id": {"type": "string"}
+            }
+          },
+          "wind_rating": {"type": "string"},
+          "seismic_rating": {"type": "string"},
+          "interior_package": {"type": "string"},
+          "modules": {"type": "array", "items": {"type": "string"}},
+          "smart_modules": {"type": "array", "items": {"type": "string"}},
+          "unit_price": {"$ref": "#/$defs/money"},
+          "weight_kg": {"type": "number", "minimum": 0},
+          "lead_time_days": {"type": "integer", "minimum": 0},
+          "signed_on": {"type": ["string", "null"]},
+          "supersedes": {"type": "integer"},
+          "reject_reason": {"type": "string"}
+        }
+      }
+    },
+
+    "quotes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "inquiry_id", "revisions"],
+        "properties": {
+          "id": {"type": "string"},
+          "inquiry_id": {"type": "string"},
+          "revisions": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["revision", "currency", "valid_from", "valid_until", "issued_on", "lines"],
+              "properties": {
+                "revision": {"type": "integer", "minimum": 1},
+                "currency": {"type": "string", "minLength": 3},
+                "valid_from": {"type": "string"},
+                "valid_until": {"type": "string"},
+                "issued_on": {"type": "string"},
+                "modified_by": {"type": "string"},
+                "note": {"type": "string"},
+                "lines": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["line_id", "config_id", "config_version", "qty", "unit_price"],
+                    "properties": {
+                      "line_id": {"type": "string"},
+                      "config_id": {"type": "string"},
+                      "config_version": {"type": "integer", "minimum": 1},
+                      "qty": {"type": "integer", "minimum": 1},
+                      "unit_price": {"$ref": "#/$defs/money"}
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "inquiries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "station_id", "destination_country", "created_on"],
+        "properties": {
+          "id": {"type": "string"},
+          "station_id": {"type": "string"},
+          "customer_ref": {"type": "string"},
+          "destination_country": {"type": "string"},
+          "created_on": {"type": "string"}
+        }
+      }
+    },
+
+    "orders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "inquiry_id", "station_id", "destination_country",
+                     "signed_on", "signed_quote", "lines", "batch_plan"],
+        "properties": {
+          "id": {"type": "string"},
+          "inquiry_id": {"type": "string"},
+          "station_id": {"type": "string"},
+          "destination_country": {"type": "string"},
+          "signed_on": {"type": "string"},
+          "signed_quote": {
+            "type": "object",
+            "required": ["quote_id", "revision"],
+            "properties": {
+              "quote_id": {"type": "string"},
+              "revision": {"type": "integer", "minimum": 1}
+            }
+          },
+          "site_id": {"type": ["string", "null"]},
+          "batch_plan": {"type": "array", "items": {"type": "string"}},
+          "lines": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["line_id", "model_id", "qty", "signed_config", "current_config"],
+              "properties": {
+                "line_id": {"type": "string"},
+                "model_id": {"type": "string"},
+                "qty": {"type": "integer", "minimum": 1},
+                "signed_config": {"$ref": "#/$defs/configRef"},
+                "current_config": {"$ref": "#/$defs/configRef"}
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "config_changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "line_ref", "from_version", "to_version", "requested_on",
+                     "decided_on", "state", "impact", "decided_by"],
+        "properties": {
+          "id": {"type": "string"},
+          "line_ref": {
+            "type": "object",
+            "required": ["order_id", "line_id"],
+            "properties": {"order_id": {"type": "string"}, "line_id": {"type": "string"}}
+          },
+          "from_version": {"type": "integer", "minimum": 1},
+          "to_version": {"type": "integer", "minimum": 1},
+          "requested_on": {"type": "string"},
+          "decided_on": {"type": "string"},
+          "state": {"enum": ["approved_before_production", "rejected_after_production_start",
+                             "rejected_after_loading"]},
+          "customer_approval_ref": {"type": ["string", "null"]},
+          "reason": {"type": "string"},
+          "impact": {
+            "type": "object",
+            "required": ["added_modules", "removed_modules", "price_delta",
+                         "weight_delta_kg", "lead_time_delta_days"],
+            "properties": {
+              "added_modules": {"type": "array", "items": {"type": "string"}},
+              "removed_modules": {"type": "array", "items": {"type": "string"}},
+              "price_delta": {"$ref": "#/$defs/money"},
+              "weight_delta_kg": {"type": "number"},
+              "lead_time_delta_days": {"type": "integer"}
+            }
+          },
+          "decided_by": {"type": "string"}
+        }
+      }
+    },
+
+    "capacity_locks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "line_ref", "module_id", "qty", "window_start",
+                     "window_end", "basis", "held_on", "status"],
+        "properties": {
+          "id": {"type": "string"},
+          "line_ref": {
+            "type": "object",
+            "required": ["order_id", "line_id"],
+            "properties": {"order_id": {"type": "string"}, "line_id": {"type": "string"}}
+          },
+          "module_id": {"type": "string"},
+          "qty": {"type": "integer", "minimum": 1},
+          "window_start": {"type": "string"},
+          "window_end": {"type": "string"},
+          "basis": {"enum": ["confirmed", "forecast"]},
+          "held_on": {"type": "string"},
+          "status": {"enum": ["held", "rejected_over_capacity", "released"]}
+        }
+      }
+    },
+
+    "production": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["serial_no", "order_id", "line_id", "frozen_config", "status"],
+        "properties": {
+          "serial_no": {"type": "string"},
+          "order_id": {"type": "string"},
+          "line_id": {"type": "string"},
+          "frozen_config": {"$ref": "#/$defs/configRef"},
+          "started_on": {"type": ["string", "null"]},
+          "completed_on": {"type": ["string", "null"]},
+          "status": {"enum": ["planned", "in-progress", "completed", "on-hold"]}
+        }
+      }
+    },
+
+    "inspections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "serial_no", "stage", "on", "result", "inspector"],
+        "properties": {
+          "id": {"type": "string"},
+          "serial_no": {"type": "string"},
+          "stage": {"enum": ["incoming", "in-process", "final", "re-inspection",
+                             "station-incoming", "station-repair-verification"]},
+          "on": {"type": "string"},
+          "result": {"enum": ["pass", "fail", "conditional"]},
+          "inspector": {"type": "string"},
+          "ncr_id": {"type": ["string", "null"]},
+          "findings": {"type": "string"}
+        }
+      }
+    },
+
+    "ncrs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "serial_no", "opened_on", "disposition", "responsibility"],
+        "properties": {
+          "id": {"type": "string"},
+          "serial_no": {"type": "string"},
+          "opened_on": {"type": "string"},
+          "closed_on": {"type": ["string", "null"]},
+          "disposition": {"enum": ["rework", "scrap", "concession", "replace-part", "return"]},
+          "responsibility": {"enum": ["factory", "supplier", "carrier", "station", "customer"]},
+          "detail": {"type": "string"}
+        }
+      }
+    },
+
+    "containers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "batch_id", "serials", "fold_verified", "sealed_on", "seal_no"],
+        "properties": {
+          "id": {"type": "string"},
+          "batch_id": {"type": "string"},
+          "serials": {"type": "array", "items": {"type": "string"}},
+          "fold_verified": {"type": "boolean"},
+          "sealed_on": {"type": "string"},
+          "seal_no": {"type": "string"}
+        }
+      }
+    },
+
+    "shipments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["batch_id", "order_id", "containers", "mode", "etd", "status"],
+        "properties": {
+          "batch_id": {"type": "string"},
+          "order_id": {"type": "string"},
+          "containers": {"type": "array", "items": {"type": "string"}},
+          "bl_no": {"type": "string"},
+          "mode": {"enum": ["fcl-ocean", "lcl-ocean", "rail", "truck", "air"]},
+          "etd": {"type": "string"},
+          "eta": {"type": "string"},
+          "arrived_on": {"type": ["string", "null"]},
+          "status": {"enum": ["planned", "in-transit", "delivered-to-station",
+                              "in-station-stock", "delivered-to-site"]}
+        }
+      }
+    },
+
+    "damage_reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "serial_no", "found_on", "found_at_stage",
+                     "container_seals_intact", "determined_responsibility"],
+        "properties": {
+          "id": {"type": "string"},
+          "serial_no": {"type": "string"},
+          "found_on": {"type": "string"},
+          "found_at_stage": {"type": "string"},
+          "container_seals_intact": {"type": "boolean"},
+          "joint_survey_on": {"type": ["string", "null"]},
+          "determined_responsibility": {"enum": ["factory", "supplier", "carrier", "station", "customer"]},
+          "claim_no": {"type": ["string", "null"]},
+          "resolution": {"type": "string"},
+          "resolved_on": {"type": ["string", "null"]}
+        }
+      }
+    },
+
+    "permits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "site_id", "type", "status"],
+        "properties": {
+          "id": {"type": "string"},
+          "site_id": {"type": "string"},
+          "type": {"type": "string"},
+          "status": {"enum": ["pending", "granted", "denied", "delayed-then-granted"]},
+          "applied_on": {"type": "string"},
+          "delay_notice_on": {"type": "string"},
+          "granted_on": {"type": ["string", "null"]}
+        }
+      }
+    },
+
+    "offline_install_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["client_event_id", "serial_no", "recorded_at", "synced_at",
+                     "recorded_by", "type", "payload_hash"],
+        "properties": {
+          "client_event_id": {"type": "string"},
+          "serial_no": {"type": "string"},
+          "recorded_at": {"type": "string"},
+          "synced_at": {"type": "string"},
+          "recorded_by": {"type": "string"},
+          "type": {"enum": ["structure-deployed", "utility-connected",
+                            "energized", "energization-blocked", "inspection-note"]},
+          "payload_hash": {"type": "string"},
+          "site_id": {"type": "string"},
+          "note": {"type": "string"}
+        }
+      }
+    },
+
+    "installations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["serial_no", "site_id", "structure_ready_on"],
+        "properties": {
+          "serial_no": {"type": "string"},
+          "site_id": {"type": "string"},
+          "structure_ready_on": {"type": "string"},
+          "energized_on": {"type": ["string", "null"]}
+        }
+      }
+    },
+
+    "acceptance_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "serial_no", "against_config", "checked_on",
+                     "signed_by_customer", "items"],
+        "properties": {
+          "id": {"type": "string"},
+          "serial_no": {"type": "string"},
+          "against_config": {"$ref": "#/$defs/configRef"},
+          "checked_on": {"type": "string"},
+          "signed_by_customer": {"type": "boolean"},
+          "signed_on": {"type": ["string", "null"]},
+          "resolved_punch": {"type": "array", "items": {"type": "string"}},
+          "items": {
+            "type": "array", "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["item", "expected", "actual", "result"],
+              "properties": {
+                "item": {"type": "string"},
+                "expected": {"type": "string"},
+                "actual": {"type": "string"},
+                "result": {"enum": ["match", "mismatch", "not-applicable"]},
+                "punch_id": {"type": "string"},
+                "responsibility": {"enum": ["factory", "supplier", "carrier", "station", "customer"]}
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "punch_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "serial_no", "opened_on", "responsibility"],
+        "properties": {
+          "id": {"type": "string"},
+          "serial_no": {"type": "string"},
+          "opened_on": {"type": "string"},
+          "closed_on": {"type": ["string", "null"]},
+          "responsibility": {"enum": ["factory", "supplier", "carrier", "station", "customer"]},
+          "resolution": {"type": "string"}
+        }
+      }
+    },
+
+    "warranties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["serial_no", "started_on", "months"],
+        "properties": {
+          "serial_no": {"type": "string"},
+          "started_on": {"type": "string"},
+          "months": {"type": "integer", "minimum": 1}
+        }
+      }
+    },
+
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["event_id", "ts", "actor", "stage", "type", "serials",
+                     "summary", "responsibility"],
+        "properties": {
+          "event_id": {"type": "string"},
+          "ts": {"type": "string"},
+          "actor": {"type": "string"},
+          "stage": {"enum": ["inquiry", "engineering", "compliance", "procurement",
+                             "production", "qc", "packing", "shipping",
+                             "installation", "acceptance", "warranty", "maintenance"]},
+          "type": {"type": "string"},
+          "serials": {"type": "array", "items": {"type": "string"}},
+          "summary": {"type": "string"},
+          "refs": {"type": "object"},
+          "responsibility": {"enum": ["sales", "customer", "engineering", "compliance",
+                                      "procurement", "supplier", "factory", "logistics",
+                                      "carrier", "station", "authority", "installer"]}
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "money": {
+      "type": "object",
+      "required": ["amount", "currency"],
+      "properties": {
+        "amount": {"type": "number"},
+        "currency": {"type": "string", "minLength": 3, "pattern": "^[A-Z]{3}$"}
+      }
+    },
+    "configRef": {
+      "type": "object",
+      "required": ["config_id", "version"],
+      "properties": {
+        "config_id": {"type": "string"},
+        "version": {"type": "integer", "minimum": 1}
+      }
+    }
+  },
+
+  "additionalProperties": false
+}

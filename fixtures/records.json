@@ -1,0 +1,461 @@
+{
+  "domain": "folding-house-export",
+  "version": 2,
+  "sample_id": "sample-008",
+  "generated_on": "2026-09-26",
+  "note": "全部公司、人员、单号均为虚构样例，不含真实个人信息或凭据",
+
+  "products": [
+    {
+      "id": "M-SYF20",
+      "name": "双翼房 SYF-20",
+      "kind": "double-wing",
+      "folded_m": {"length": 6.058, "width": 2.438, "height": 2.591},
+      "expanded_area_m2": 38,
+      "base_weight_kg": 4600
+    },
+    {
+      "id": "M-TKC08",
+      "name": "太空舱 TKC-08",
+      "kind": "capsule",
+      "folded_m": {"length": 8.0, "width": 2.4, "height": 3.05},
+      "expanded_area_m2": 19.2,
+      "base_weight_kg": 6200
+    }
+  ],
+
+  "modules": [
+    {"id": "ELEC-EU230", "name": "欧盟制式配电与线束 230V/50Hz", "category": "electrical", "supplier_id": "S-ELEC", "unit_price": {"amount": 1400, "currency": "EUR"}, "weight_kg": 95, "lead_time_days": 14},
+    {"id": "ELEC-US240", "name": "北美制式配电与线束 120/240V/60Hz", "category": "electrical", "supplier_id": "S-ELEC", "unit_price": {"amount": 1500, "currency": "USD"}, "weight_kg": 95, "lead_time_days": 14},
+    {"id": "GLASS-DOUBLE", "name": "双层中空玻璃围护", "category": "glazing", "supplier_id": "S-GLASS", "unit_price": {"amount": 1200, "currency": "EUR"}, "weight_kg": 210, "lead_time_days": 21},
+    {"id": "GLASS-TRIPLE", "name": "三层中空玻璃围护", "category": "glazing", "supplier_id": "S-GLASS", "unit_price": {"amount": 1600, "currency": "EUR"}, "weight_kg": 240, "lead_time_days": 28},
+    {"id": "HVAC-EU", "name": "230V 冷暖一体空调", "category": "hvac", "supplier_id": "S-HVAC", "unit_price": {"amount": 1900, "currency": "EUR"}, "weight_kg": 120, "lead_time_days": 18},
+    {"id": "HVAC-US", "name": "240V 冷暖一体空调", "category": "hvac", "supplier_id": "S-HVAC", "unit_price": {"amount": 2100, "currency": "USD"}, "weight_kg": 120, "lead_time_days": 18},
+    {"id": "SMART-ENV", "name": "环境控制智能模块", "category": "smart", "supplier_id": "S-SMART", "unit_price": {"amount": 600, "currency": "EUR"}, "weight_kg": 8, "lead_time_days": 7},
+    {"id": "SMART-LOCK", "name": "智能门锁模块", "category": "smart", "supplier_id": "S-SMART", "unit_price": {"amount": 300, "currency": "EUR"}, "weight_kg": 6, "lead_time_days": 7},
+    {"id": "SMART-PV", "name": "光伏智能模块", "category": "smart", "supplier_id": "S-SMART", "unit_price": {"amount": 1800, "currency": "EUR"}, "weight_kg": 150, "lead_time_days": 30},
+    {"id": "PNL-COR", "name": "角部围护板（备件）", "category": "spare", "supplier_id": "S-PANEL", "unit_price": {"amount": 260, "currency": "EUR"}, "weight_kg": 45, "lead_time_days": 10}
+  ],
+
+  "suppliers": [
+    {
+      "id": "S-SMART", "name": "智舱模块厂",
+      "confirmed_capacity": [
+        {"module_id": "SMART-PV", "qty": 2, "window_start": "2026-07-01", "window_end": "2026-07-31", "confirmed_on": "2026-05-20"},
+        {"module_id": "SMART-PV", "qty": 3, "window_start": "2026-08-01", "window_end": "2026-08-31", "confirmed_on": "2026-07-20"},
+        {"module_id": "SMART-ENV", "qty": 20, "window_start": "2026-07-01", "window_end": "2026-08-31", "confirmed_on": "2026-05-20"},
+        {"module_id": "SMART-LOCK", "qty": 20, "window_start": "2026-07-01", "window_end": "2026-08-31", "confirmed_on": "2026-05-20"}
+      ]
+    },
+    {"id": "S-ELEC", "name": "远东线束厂", "confirmed_capacity": []},
+    {"id": "S-GLASS", "name": "海澄玻璃厂", "confirmed_capacity": []},
+    {"id": "S-HVAC", "name": "恒风暖通厂", "confirmed_capacity": []},
+    {"id": "S-PANEL", "name": "固构板件厂", "confirmed_capacity": []}
+  ],
+
+  "service_stations": [
+    {"id": "ST-DE-HH", "name": "汉堡服务站", "country": "DE", "cert_access": ["CERT-CE-EPI"]},
+    {"id": "ST-US-LA", "name": "洛杉矶服务站", "country": "US", "cert_access": ["CERT-UL-US"]}
+  ],
+
+  "certificates": [
+    {
+      "id": "CERT-CE-EPI",
+      "title": "CE 符合性声明与 EN 1991/1998 结构评定",
+      "countries": ["DE", "FR", "NL", "IT"],
+      "issued_on": "2025-03-01",
+      "valid_until": "2028-03-01",
+      "doc_uri": "station-vault://cert/CERT-CE-EPI.pdf"
+    },
+    {
+      "id": "CERT-UL-US",
+      "title": "UL/cUL 电气列名与 IBC/ASCE 7 结构评定",
+      "countries": ["US"],
+      "issued_on": "2025-06-01",
+      "valid_until": "2028-06-01",
+      "doc_uri": "station-vault://cert/CERT-UL-US.pdf"
+    }
+  ],
+
+  "configuration_versions": [
+    {
+      "config_id": "CFG-SYF20-EU-01", "model_id": "M-SYF20", "version": 1,
+      "status": "superseded",
+      "electrical": {"standard": "EN 60364", "voltage": "230V", "frequency": "50Hz", "certificate_id": "CERT-CE-EPI"},
+      "wind_rating": "EN 1991-1-4 0.5 kN/m2",
+      "seismic_rating": "EN 1998 场地类别 C",
+      "interior_package": "comfort",
+      "modules": ["ELEC-EU230", "GLASS-DOUBLE", "HVAC-EU", "SMART-ENV", "SMART-LOCK"],
+      "smart_modules": ["SMART-ENV", "SMART-LOCK"],
+      "unit_price": {"amount": 18500, "currency": "EUR"},
+      "weight_kg": 4600,
+      "lead_time_days": 45,
+      "signed_on": "2026-06-20"
+    },
+    {
+      "config_id": "CFG-SYF20-EU-01", "model_id": "M-SYF20", "version": 2,
+      "status": "signed",
+      "electrical": {"standard": "EN 60364", "voltage": "230V", "frequency": "50Hz", "certificate_id": "CERT-CE-EPI"},
+      "wind_rating": "EN 1991-1-4 0.5 kN/m2",
+      "seismic_rating": "EN 1998 场地类别 C",
+      "interior_package": "comfort",
+      "modules": ["ELEC-EU230", "GLASS-TRIPLE", "HVAC-EU", "SMART-ENV", "SMART-LOCK", "SMART-PV"],
+      "smart_modules": ["SMART-ENV", "SMART-LOCK", "SMART-PV"],
+      "unit_price": {"amount": 20700, "currency": "EUR"},
+      "weight_kg": 4780,
+      "lead_time_days": 55,
+      "signed_on": "2026-07-02",
+      "supersedes": 1
+    },
+    {
+      "config_id": "CFG-SYF20-EU-01", "model_id": "M-SYF20", "version": 3,
+      "status": "rejected",
+      "electrical": {"standard": "NEC", "voltage": "120/240V", "frequency": "60Hz", "certificate_id": "CERT-UL-US"},
+      "wind_rating": "ASCE 7 150 mph",
+      "seismic_rating": "IBC SDC C",
+      "interior_package": "deluxe",
+      "modules": ["ELEC-US240", "GLASS-TRIPLE", "HVAC-US", "SMART-ENV", "SMART-LOCK", "SMART-PV"],
+      "smart_modules": ["SMART-ENV", "SMART-LOCK", "SMART-PV"],
+      "unit_price": {"amount": 22600, "currency": "EUR"},
+      "weight_kg": 4790,
+      "lead_time_days": 70,
+      "signed_on": null,
+      "supersedes": 2,
+      "reject_reason": "投产后试图将整单静默切换为北美制式，未获客户书面变更"
+    },
+    {
+      "config_id": "CFG-TKC08-US-01", "model_id": "M-TKC08", "version": 1,
+      "status": "signed",
+      "electrical": {"standard": "NEC", "voltage": "120/240V", "frequency": "60Hz", "certificate_id": "CERT-UL-US"},
+      "wind_rating": "ASCE 7 150 mph",
+      "seismic_rating": "IBC SDC C",
+      "interior_package": "standard",
+      "modules": ["ELEC-US240", "GLASS-TRIPLE", "HVAC-US", "SMART-ENV", "SMART-LOCK", "SMART-PV"],
+      "smart_modules": ["SMART-ENV", "SMART-LOCK", "SMART-PV"],
+      "unit_price": {"amount": 32800, "currency": "USD"},
+      "weight_kg": 6200,
+      "lead_time_days": 60,
+      "signed_on": "2026-07-18"
+    }
+  ],
+
+  "quotes": [
+    {
+      "id": "Q-2026-001", "inquiry_id": "INQ-2026-001",
+      "revisions": [
+        {"revision": 1, "currency": "EUR", "valid_from": "2026-06-12", "valid_until": "2026-07-12",
+         "issued_on": "2026-06-12", "lines": [{"line_id": "L1", "config_id": "CFG-SYF20-EU-01", "config_version": 1, "qty": 2, "unit_price": {"amount": 18500, "currency": "EUR"}}]},
+        {"revision": 2, "currency": "EUR", "valid_from": "2026-08-15", "valid_until": "2026-09-15",
+         "issued_on": "2026-08-15", "modified_by": "u-sales",
+         "note": "销售在量产后单方面修改的报价，仅用于新询盘，不追溯已签署订单",
+         "lines": [{"line_id": "L1", "config_id": "CFG-SYF20-EU-01", "config_version": 2, "qty": 2, "unit_price": {"amount": 17900, "currency": "EUR"}}]}
+      ]
+    },
+    {
+      "id": "Q-2026-002", "inquiry_id": "INQ-2026-002",
+      "revisions": [
+        {"revision": 1, "currency": "USD", "valid_from": "2026-07-15", "valid_until": "2026-08-15",
+         "issued_on": "2026-07-15", "lines": [{"line_id": "L2", "config_id": "CFG-TKC08-US-01", "config_version": 1, "qty": 1, "unit_price": {"amount": 32800, "currency": "USD"}}]}
+      ]
+    }
+  ],
+
+  "inquiries": [
+    {"id": "INQ-2026-001", "station_id": "ST-DE-HH", "customer_ref": "DE-BAU-GMBH（虚构）", "destination_country": "DE", "created_on": "2026-06-10"},
+    {"id": "INQ-2026-002", "station_id": "ST-US-LA", "customer_ref": "CA-DESERT-RETREAT（虚构）", "destination_country": "US", "created_on": "2026-07-15"}
+  ],
+
+  "orders": [
+    {
+      "id": "SO-2026-042", "inquiry_id": "INQ-2026-001", "station_id": "ST-DE-HH",
+      "destination_country": "DE", "signed_on": "2026-06-20",
+      "signed_quote": {"quote_id": "Q-2026-001", "revision": 1},
+      "lines": [
+        {"line_id": "L1", "model_id": "M-SYF20", "qty": 2,
+         "signed_config": {"config_id": "CFG-SYF20-EU-01", "version": 1},
+         "current_config": {"config_id": "CFG-SYF20-EU-01", "version": 2}}
+      ],
+      "site_id": "DE-SITE-7",
+      "batch_plan": ["B-2026-08-1", "B-2026-08-2"]
+    },
+    {
+      "id": "SO-2026-051", "inquiry_id": "INQ-2026-002", "station_id": "ST-US-LA",
+      "destination_country": "US", "signed_on": "2026-07-18",
+      "signed_quote": {"quote_id": "Q-2026-002", "revision": 1},
+      "lines": [
+        {"line_id": "L2", "model_id": "M-TKC08", "qty": 1,
+         "signed_config": {"config_id": "CFG-TKC08-US-01", "version": 1},
+         "current_config": {"config_id": "CFG-TKC08-US-01", "version": 1}}
+      ],
+      "site_id": null,
+      "batch_plan": ["B-2026-08-3"]
+    }
+  ],
+
+  "config_changes": [
+    {
+      "id": "ECN-2607-01", "line_ref": {"order_id": "SO-2026-042", "line_id": "L1"},
+      "from_version": 1, "to_version": 2,
+      "requested_on": "2026-06-30", "decided_on": "2026-07-01",
+      "state": "approved_before_production",
+      "customer_approval_ref": "DE-BAU 邮件确认 2026-07-02",
+      "reason": "客户要求提升保温并加装光伏",
+      "impact": {
+        "added_modules": ["GLASS-TRIPLE", "SMART-PV"],
+        "removed_modules": ["GLASS-DOUBLE"],
+        "price_delta": {"amount": 2200, "currency": "EUR"},
+        "weight_delta_kg": 180,
+        "lead_time_delta_days": 10
+      },
+      "decided_by": "u-eng"
+    },
+    {
+      "id": "ECN-2607-02", "line_ref": {"order_id": "SO-2026-042", "line_id": "L1"},
+      "from_version": 2, "to_version": 3,
+      "requested_on": "2026-07-08", "decided_on": "2026-07-09",
+      "state": "rejected_after_production_start",
+      "customer_approval_ref": null,
+      "reason": "销售口头要求改北美制式与豪华内装",
+      "impact": {
+        "added_modules": ["ELEC-US240", "HVAC-US"],
+        "removed_modules": ["ELEC-EU230", "HVAC-EU"],
+        "price_delta": {"amount": 1900, "currency": "EUR"},
+        "weight_delta_kg": 10,
+        "lead_time_delta_days": 15
+      },
+      "decided_by": "u-eng"
+    },
+    {
+      "id": "ECN-2608-01", "line_ref": {"order_id": "SO-2026-042", "line_id": "L1"},
+      "from_version": 2, "to_version": 3,
+      "requested_on": "2026-08-02", "decided_on": "2026-08-02",
+      "state": "rejected_after_loading",
+      "customer_approval_ref": null,
+      "reason": "首批已装柜发运仍要求统一换版",
+      "impact": {
+        "added_modules": ["ELEC-US240", "HVAC-US"],
+        "removed_modules": ["ELEC-EU230", "HVAC-EU"],
+        "price_delta": {"amount": 1900, "currency": "EUR"},
+        "weight_delta_kg": 10,
+        "lead_time_delta_days": 15
+      },
+      "decided_by": "u-eng"
+    }
+  ],
+
+  "capacity_locks": [
+    {"id": "LK-2606-01", "line_ref": {"order_id": "SO-2026-042", "line_id": "L1"}, "module_id": "SMART-PV", "qty": 2,
+     "window_start": "2026-07-01", "window_end": "2026-07-31", "basis": "confirmed", "held_on": "2026-06-21", "status": "held"},
+    {"id": "LK-2607-01", "line_ref": {"order_id": "SO-2026-051", "line_id": "L2"}, "module_id": "SMART-PV", "qty": 1,
+     "window_start": "2026-07-01", "window_end": "2026-07-31", "basis": "confirmed", "held_on": "2026-07-16", "status": "rejected_over_capacity"},
+    {"id": "LK-2607-02", "line_ref": {"order_id": "SO-2026-051", "line_id": "L2"}, "module_id": "SMART-PV", "qty": 1,
+     "window_start": "2026-08-01", "window_end": "2026-08-31", "basis": "confirmed", "held_on": "2026-07-21", "status": "held"}
+  ],
+
+  "production": [
+    {"serial_no": "SN-SYF20-001", "order_id": "SO-2026-042", "line_id": "L1",
+     "frozen_config": {"config_id": "CFG-SYF20-EU-01", "version": 2},
+     "started_on": "2026-07-06", "completed_on": "2026-07-19", "status": "completed"},
+    {"serial_no": "SN-SYF20-002", "order_id": "SO-2026-042", "line_id": "L1",
+     "frozen_config": {"config_id": "CFG-SYF20-EU-01", "version": 2},
+     "started_on": "2026-07-06", "completed_on": "2026-07-19", "status": "completed"},
+    {"serial_no": "SN-TKC08-001", "order_id": "SO-2026-051", "line_id": "L2",
+     "frozen_config": {"config_id": "CFG-TKC08-US-01", "version": 1},
+     "started_on": "2026-08-03", "completed_on": "2026-08-11", "status": "completed"}
+  ],
+
+  "inspections": [
+    {"id": "INS-001", "serial_no": "SN-SYF20-001", "stage": "final", "on": "2026-07-20", "result": "pass", "inspector": "u-qc", "ncr_id": null},
+    {"id": "INS-002", "serial_no": "SN-SYF20-002", "stage": "final", "on": "2026-07-20", "result": "fail", "inspector": "u-qc",
+     "ncr_id": "NCR-001", "findings": "电气绝缘电阻低于限值"},
+    {"id": "INS-003", "serial_no": "SN-SYF20-002", "stage": "re-inspection", "on": "2026-07-27", "result": "pass", "inspector": "u-qc", "ncr_id": "NCR-001"},
+    {"id": "INS-004", "serial_no": "SN-TKC08-001", "stage": "final", "on": "2026-08-12", "result": "pass", "inspector": "u-qc", "ncr_id": null},
+    {"id": "INS-005", "serial_no": "SN-SYF20-002", "stage": "station-repair-verification", "on": "2026-09-12", "result": "pass", "inspector": "u-station-qc", "ncr_id": "NCR-002"}
+  ],
+
+  "ncrs": [
+    {"id": "NCR-001", "serial_no": "SN-SYF20-002", "opened_on": "2026-07-20", "closed_on": "2026-07-27",
+     "disposition": "rework", "responsibility": "factory", "detail": "更换线束接插件并重测绝缘"},
+    {"id": "NCR-002", "serial_no": "SN-SYF20-002", "opened_on": "2026-09-08", "closed_on": "2026-09-12",
+     "disposition": "replace-part", "responsibility": "carrier", "detail": "海运碰撞致角部围护板变形，随船查验封条完好，索赔后更换 PNL-COR"}
+  ],
+
+  "containers": [
+    {"id": "CNRU-110022", "batch_id": "B-2026-08-1", "serials": ["SN-SYF20-001"], "fold_verified": true, "sealed_on": "2026-07-31", "seal_no": "SL-7781"},
+    {"id": "CNRU-110039", "batch_id": "B-2026-08-2", "serials": ["SN-SYF20-002"], "fold_verified": true, "sealed_on": "2026-08-09", "seal_no": "SL-7794"},
+    {"id": "TCLU-440710", "batch_id": "B-2026-08-3", "serials": ["SN-TKC08-001"], "fold_verified": true, "sealed_on": "2026-08-18", "seal_no": "SL-8010"}
+  ],
+
+  "shipments": [
+    {"batch_id": "B-2026-08-1", "order_id": "SO-2026-042", "containers": ["CNRU-110022"], "bl_no": "BL-HAM-2608-11",
+     "mode": "fcl-ocean", "etd": "2026-08-01", "eta": "2026-08-28", "arrived_on": "2026-08-28", "status": "delivered-to-station"},
+    {"batch_id": "B-2026-08-2", "order_id": "SO-2026-042", "containers": ["CNRU-110039"], "bl_no": "BL-HAM-2608-26",
+     "mode": "fcl-ocean", "etd": "2026-08-10", "eta": "2026-09-08", "arrived_on": "2026-09-08", "status": "delivered-to-station"},
+    {"batch_id": "B-2026-08-3", "order_id": "SO-2026-051", "containers": ["TCLU-440710"], "bl_no": "BL-LAX-2608-40",
+     "mode": "fcl-ocean", "etd": "2026-08-20", "eta": "2026-09-12", "arrived_on": "2026-09-12", "status": "in-station-stock"}
+  ],
+
+  "damage_reports": [
+    {"id": "DMG-001", "serial_no": "SN-SYF20-002", "found_on": "2026-09-08", "found_at_stage": "station-unpack",
+     "container_seals_intact": true, "joint_survey_on": "2026-09-09",
+     "determined_responsibility": "carrier", "claim_no": "CLM-2609-07",
+     "resolution": "更换角部围护板 PNL-COR，INS-005 复验合格", "resolved_on": "2026-09-12"}
+  ],
+
+  "permits": [
+    {"id": "PMT-STR-01", "site_id": "DE-SITE-7", "type": "structural", "status": "granted", "granted_on": "2026-09-01"},
+    {"id": "PMT-ELC-01", "site_id": "DE-SITE-7", "type": "electrical", "status": "delayed-then-granted",
+     "applied_on": "2026-07-25", "delay_notice_on": "2026-09-05", "granted_on": "2026-09-18"}
+  ],
+
+  "offline_install_records": [
+    {"client_event_id": "off-7f31-a1", "serial_no": "SN-SYF20-001", "recorded_at": "2026-09-10T14:20:00Z",
+     "synced_at": "2026-09-11T08:02:00Z", "recorded_by": "u-installer", "type": "structure-deployed",
+     "payload_hash": "sha256:1111aaaa", "site_id": "DE-SITE-7"},
+    {"client_event_id": "off-7f31-a1", "serial_no": "SN-SYF20-001", "recorded_at": "2026-09-10T14:20:00Z",
+     "synced_at": "2026-09-11T08:05:00Z", "recorded_by": "u-installer", "type": "structure-deployed",
+     "payload_hash": "sha256:1111aaaa", "site_id": "DE-SITE-7", "note": "弱网重试产生的重复回传"},
+    {"client_event_id": "off-9c02-b7", "serial_no": "SN-SYF20-002", "recorded_at": "2026-09-15T11:40:00Z",
+     "synced_at": "2026-09-15T19:30:00Z", "recorded_by": "u-installer", "type": "structure-deployed",
+     "payload_hash": "sha256:2222bbbb", "site_id": "DE-SITE-7"},
+    {"client_event_id": "off-9c02-b7", "serial_no": "SN-SYF20-002", "recorded_at": "2026-09-15T11:40:00Z",
+     "synced_at": "2026-09-15T19:31:00Z", "recorded_by": "u-installer", "type": "structure-deployed",
+     "payload_hash": "sha256:9999ffff", "site_id": "DE-SITE-7", "note": "同号不同内容：冲突，须隔离不得静默覆盖"},
+    {"client_event_id": "off-d45e-c3", "serial_no": "SN-SYF20-001", "recorded_at": "2026-09-12T10:00:00Z",
+     "synced_at": "2026-09-12T10:01:00Z", "recorded_by": "u-installer", "type": "energization-blocked",
+     "payload_hash": "sha256:3333cccc", "site_id": "DE-SITE-7", "note": "电气许可未获批，拒绝送电"}
+  ],
+
+  "installations": [
+    {"serial_no": "SN-SYF20-001", "site_id": "DE-SITE-7", "structure_ready_on": "2026-09-10", "energized_on": "2026-09-19"},
+    {"serial_no": "SN-SYF20-002", "site_id": "DE-SITE-7", "structure_ready_on": "2026-09-15", "energized_on": "2026-09-19"}
+  ],
+
+  "acceptance_checks": [
+    {
+      "id": "ACC-001", "serial_no": "SN-SYF20-001", "against_config": {"config_id": "CFG-SYF20-EU-01", "version": 2},
+      "checked_on": "2026-09-21", "signed_by_customer": true, "signed_on": "2026-09-21",
+      "items": [
+        {"item": "electrical", "expected": "230V/50Hz EN 60364", "actual": "230V/50Hz EN 60364", "result": "match"},
+        {"item": "wind_rating", "expected": "EN 1991-1-4 0.5 kN/m2", "actual": "EN 1991-1-4 0.5 kN/m2", "result": "match"},
+        {"item": "seismic_rating", "expected": "EN 1998 场地类别 C", "actual": "EN 1998 场地类别 C", "result": "match"},
+        {"item": "interior_package", "expected": "comfort", "actual": "comfort", "result": "match"},
+        {"item": "smart:SMART-PV", "expected": "present", "actual": "present", "result": "match"}
+      ]
+    },
+    {
+      "id": "ACC-002", "serial_no": "SN-SYF20-002", "against_config": {"config_id": "CFG-SYF20-EU-01", "version": 2},
+      "checked_on": "2026-09-20", "signed_by_customer": false, "signed_on": null,
+      "items": [
+        {"item": "electrical", "expected": "230V/50Hz EN 60364", "actual": "230V/50Hz EN 60364", "result": "match"},
+        {"item": "interior:fabric-color", "expected": "sand", "actual": "grey", "result": "mismatch",
+         "punch_id": "PCH-001", "responsibility": "factory"},
+        {"item": "smart:SMART-PV", "expected": "present", "actual": "present", "result": "match"}
+      ]
+    },
+    {
+      "id": "ACC-003", "serial_no": "SN-SYF20-002", "against_config": {"config_id": "CFG-SYF20-EU-01", "version": 2},
+      "checked_on": "2026-09-22", "signed_by_customer": true, "signed_on": "2026-09-22",
+      "resolved_punch": ["PCH-001"],
+      "items": [
+        {"item": "interior:fabric-color", "expected": "sand", "actual": "sand", "result": "match"}
+      ]
+    }
+  ],
+
+  "punch_items": [
+    {"id": "PCH-001", "serial_no": "SN-SYF20-002", "opened_on": "2026-09-20", "closed_on": "2026-09-21",
+     "responsibility": "factory", "resolution": "工厂补发砂色面料，服务站当日更换"}
+  ],
+
+  "warranties": [
+    {"serial_no": "SN-SYF20-001", "started_on": "2026-09-21", "months": 24},
+    {"serial_no": "SN-SYF20-002", "started_on": "2026-09-22", "months": 24}
+  ],
+
+  "events": [
+    {"event_id": "EV-0001", "ts": "2026-06-10T09:00:00Z", "actor": "u-sales", "stage": "inquiry", "type": "inquiry-created",
+     "serials": [], "summary": "汉堡站收到双翼房 2 台询盘，目的国德国", "refs": {"inquiry_id": "INQ-2026-001"}, "responsibility": "sales"},
+    {"event_id": "EV-0002", "ts": "2026-06-12T10:00:00Z", "actor": "u-sales", "stage": "inquiry", "type": "quote-issued",
+     "serials": [], "summary": "EUR 报价 Q-2026-001 版本1，有效期至 2026-07-12", "refs": {"quote_id": "Q-2026-001", "revision": 1}, "responsibility": "sales"},
+    {"event_id": "EV-0003", "ts": "2026-06-20T15:00:00Z", "actor": "u-customer", "stage": "inquiry", "type": "order-signed",
+     "serials": [], "summary": "客户在报价有效期内签署 SO-2026-042，配置 CFG-SYF20-EU-01 v1，EUR 18,500/台", "refs": {"order_id": "SO-2026-042"}, "responsibility": "customer"},
+    {"event_id": "EV-0004", "ts": "2026-06-22T11:00:00Z", "actor": "u-comp", "stage": "compliance", "type": "certificate-verified",
+     "serials": [], "summary": "CE/EN 证书覆盖 DE 且在有效期内", "refs": {"certificate_id": "CERT-CE-EPI", "order_id": "SO-2026-042"}, "responsibility": "compliance"},
+    {"event_id": "EV-0005", "ts": "2026-06-21T09:30:00Z", "actor": "u-purch", "stage": "procurement", "type": "capacity-lock-held",
+     "serials": [], "summary": "锁定智舱厂 7 月光伏模块已确认产能 2 套", "refs": {"lock_id": "LK-2606-01"}, "responsibility": "procurement"},
+    {"event_id": "EV-0006", "ts": "2026-06-23T09:00:00Z", "actor": "u-purch", "stage": "procurement", "type": "purchase-orders-issued",
+     "serials": [], "summary": "向 S-ELEC/S-GLASS/S-HVAC/S-SMART 下达采购单", "refs": {"order_id": "SO-2026-042"}, "responsibility": "procurement"},
+    {"event_id": "EV-0007", "ts": "2026-06-30T14:00:00Z", "actor": "u-customer", "stage": "engineering", "type": "ecn-requested",
+     "serials": [], "summary": "客户提出三层玻璃+光伏", "refs": {"ecn_id": "ECN-2607-01"}, "responsibility": "customer"},
+    {"event_id": "EV-0008", "ts": "2026-07-01T16:00:00Z", "actor": "u-eng", "stage": "engineering", "type": "ecn-approved",
+     "serials": [], "summary": "投产前批准：+SMART-PV、双玻换三玻；+EUR 2,200 / +180kg / +10 天", "refs": {"ecn_id": "ECN-2607-01"}, "responsibility": "engineering"},
+    {"event_id": "EV-0009", "ts": "2026-07-02T10:00:00Z", "actor": "u-customer", "stage": "engineering", "type": "config-version-signed",
+     "serials": [], "summary": "CFG-SYF20-EU-01 v2 签署，v1 作废留档", "refs": {"config_id": "CFG-SYF20-EU-01", "version": 2}, "responsibility": "customer"},
+    {"event_id": "EV-0010", "ts": "2026-07-06T08:00:00Z", "actor": "u-factory", "stage": "production", "type": "production-started-config-frozen",
+     "serials": ["SN-SYF20-001", "SN-SYF20-002"], "summary": "两台按 v2 投产，配置冻结", "refs": {"order_id": "SO-2026-042"}, "responsibility": "factory"},
+    {"event_id": "EV-0011", "ts": "2026-07-09T10:00:00Z", "actor": "u-eng", "stage": "engineering", "type": "ecn-rejected",
+     "serials": ["SN-SYF20-001", "SN-SYF20-002"], "summary": "ECN-2607-02 被拒：投产数量不得静默切换北美制式", "refs": {"ecn_id": "ECN-2607-02"}, "responsibility": "engineering"},
+    {"event_id": "EV-0012", "ts": "2026-07-20T15:00:00Z", "actor": "u-qc", "stage": "qc", "type": "inspection-passed",
+     "serials": ["SN-SYF20-001"], "summary": "SN-SYF20-001 终检合格", "refs": {"inspection_id": "INS-001"}, "responsibility": "factory"},
+    {"event_id": "EV-0013", "ts": "2026-07-20T17:00:00Z", "actor": "u-qc", "stage": "qc", "type": "inspection-failed-ncr",
+     "serials": ["SN-SYF20-002"], "summary": "SN-SYF20-002 绝缘不合格，开具 NCR-001，禁止入柜", "refs": {"ncr_id": "NCR-001"}, "responsibility": "factory"},
+    {"event_id": "EV-0014", "ts": "2026-07-27T11:00:00Z", "actor": "u-qc", "stage": "qc", "type": "re-inspection-passed",
+     "serials": ["SN-SYF20-002"], "summary": "返工后复验合格，NCR-001 关闭", "refs": {"inspection_id": "INS-003", "ncr_id": "NCR-001"}, "responsibility": "factory"},
+    {"event_id": "EV-0015", "ts": "2026-07-31T16:00:00Z", "actor": "u-log", "stage": "packing", "type": "container-sealed",
+     "serials": ["SN-SYF20-001"], "summary": "折叠核验后装柜封条 SL-7781，首批 B-2026-08-1", "refs": {"container_id": "CNRU-110022"}, "responsibility": "logistics"},
+    {"event_id": "EV-0016", "ts": "2026-08-01T09:00:00Z", "actor": "u-log", "stage": "shipping", "type": "batch-shipped",
+     "serials": ["SN-SYF20-001"], "summary": "首批海运 BL-HAM-2608-11 离港", "refs": {"batch_id": "B-2026-08-1"}, "responsibility": "logistics"},
+    {"event_id": "EV-0017", "ts": "2026-08-02T10:00:00Z", "actor": "u-eng", "stage": "engineering", "type": "ecn-rejected",
+     "serials": ["SN-SYF20-001"], "summary": "ECN-2608-01 被拒：已装柜数量不可换版", "refs": {"ecn_id": "ECN-2608-01"}, "responsibility": "engineering"},
+    {"event_id": "EV-0018", "ts": "2026-08-15T14:00:00Z", "actor": "u-sales", "stage": "inquiry", "type": "quote-revised-no-retroactive-effect",
+     "serials": ["SN-SYF20-001", "SN-SYF20-002"], "summary": "销售将报价改为 EUR 17,900；仅对新询盘生效，序列号档案仍指向签署时版本", "refs": {"quote_id": "Q-2026-001", "revision": 2}, "responsibility": "sales"},
+    {"event_id": "EV-0019", "ts": "2026-08-09T16:00:00Z", "actor": "u-log", "stage": "packing", "type": "container-sealed",
+     "serials": ["SN-SYF20-002"], "summary": "复验合格后装柜封条 SL-7794，第二批 B-2026-08-2", "refs": {"container_id": "CNRU-110039"}, "responsibility": "logistics"},
+    {"event_id": "EV-0020", "ts": "2026-08-10T09:00:00Z", "actor": "u-log", "stage": "shipping", "type": "batch-shipped",
+     "serials": ["SN-SYF20-002"], "summary": "第二批海运离港，分批发运完成", "refs": {"batch_id": "B-2026-08-2"}, "responsibility": "logistics"},
+    {"event_id": "EV-0021", "ts": "2026-08-28T10:00:00Z", "actor": "u-station", "stage": "shipping", "type": "arrived-at-station",
+     "serials": ["SN-SYF20-001"], "summary": "首批抵达汉堡服务站", "refs": {"station_id": "ST-DE-HH"}, "responsibility": "station"},
+    {"event_id": "EV-0022", "ts": "2026-09-05T12:00:00Z", "actor": "u-authority", "stage": "installation", "type": "permit-delay-notice",
+     "serials": [], "summary": "电气许可延迟通知，仅允许结构施工", "refs": {"permit_id": "PMT-ELC-01"}, "responsibility": "authority"},
+    {"event_id": "EV-0023", "ts": "2026-09-08T11:00:00Z", "actor": "u-station", "stage": "shipping", "type": "arrived-at-station",
+     "serials": ["SN-SYF20-002"], "summary": "第二批抵站；拆箱发现角部变形", "refs": {"batch_id": "B-2026-08-2"}, "responsibility": "station"},
+    {"event_id": "EV-0024", "ts": "2026-09-09T10:00:00Z", "actor": "u-station", "stage": "shipping", "type": "damage-survey",
+     "serials": ["SN-SYF20-002"], "summary": "联合查验：封条完好、运输损伤，责任归承运人，发起索赔 CLM-2609-07", "refs": {"damage_id": "DMG-001"}, "responsibility": "carrier"},
+    {"event_id": "EV-0025", "ts": "2026-09-12T15:00:00Z", "actor": "u-station-qc", "stage": "qc", "type": "station-repair-verified",
+     "serials": ["SN-SYF20-002"], "summary": "更换 PNL-COR 后站端复验合格", "refs": {"inspection_id": "INS-005", "ncr_id": "NCR-002"}, "responsibility": "carrier"},
+    {"event_id": "EV-0026", "ts": "2026-09-18T14:00:00Z", "actor": "u-authority", "stage": "installation", "type": "permit-granted",
+     "serials": [], "summary": "电气许可批准", "refs": {"permit_id": "PMT-ELC-01"}, "responsibility": "authority"},
+    {"event_id": "EV-0027", "ts": "2026-09-19T10:30:00Z", "actor": "u-installer", "stage": "installation", "type": "energized",
+     "serials": ["SN-SYF20-001", "SN-SYF20-002"], "summary": "许可齐备后两台送电", "refs": {"site_id": "DE-SITE-7"}, "responsibility": "station"},
+    {"event_id": "EV-0028", "ts": "2026-09-20T16:00:00Z", "actor": "u-customer", "stage": "acceptance", "type": "acceptance-with-punch",
+     "serials": ["SN-SYF20-002"], "summary": "SN-SYF20-002 面料颜色不符，开立 PCH-001（工厂责任）", "refs": {"acceptance_id": "ACC-002"}, "responsibility": "factory"},
+    {"event_id": "EV-0029", "ts": "2026-09-21T15:00:00Z", "actor": "u-station", "stage": "acceptance", "type": "punch-resolved",
+     "serials": ["SN-SYF20-002"], "summary": "砂色面料更换完成", "refs": {"punch_id": "PCH-001"}, "responsibility": "factory"},
+    {"event_id": "EV-0030", "ts": "2026-09-21T17:00:00Z", "actor": "u-customer", "stage": "acceptance", "type": "accepted",
+     "serials": ["SN-SYF20-001"], "summary": "SN-SYF20-001 逐项核对与签署版一致，客户签收", "refs": {"acceptance_id": "ACC-001"}, "responsibility": "customer"},
+    {"event_id": "EV-0031", "ts": "2026-09-22T11:00:00Z", "actor": "u-customer", "stage": "acceptance", "type": "accepted",
+     "serials": ["SN-SYF20-002"], "summary": "SN-SYF20-002 整改后客户签收", "refs": {"acceptance_id": "ACC-003"}, "responsibility": "customer"},
+    {"event_id": "EV-0032", "ts": "2026-09-22T12:00:00Z", "actor": "u-station", "stage": "warranty", "type": "warranty-started",
+     "serials": ["SN-SYF20-001", "SN-SYF20-002"], "summary": "保修自验收日起 24 个月", "refs": {}, "responsibility": "station"},
+
+    {"event_id": "EV-1001", "ts": "2026-07-15T09:00:00Z", "actor": "u-sales", "stage": "inquiry", "type": "inquiry-created",
+     "serials": [], "summary": "洛杉矶站太空舱 1 台询盘", "refs": {"inquiry_id": "INQ-2026-002"}, "responsibility": "sales"},
+    {"event_id": "EV-1002", "ts": "2026-07-16T10:00:00Z", "actor": "u-purch", "stage": "procurement", "type": "capacity-lock-rejected",
+     "serials": [], "summary": "7 月光伏已确认产能被 SO-2026-042 锁定，争抢被拒", "refs": {"lock_id": "LK-2607-01"}, "responsibility": "procurement"},
+    {"event_id": "EV-1003", "ts": "2026-07-19T10:00:00Z", "actor": "u-comp", "stage": "compliance", "type": "certificate-verified",
+     "serials": [], "summary": "UL/IBC 证书覆盖 US 且有效", "refs": {"certificate_id": "CERT-UL-US"}, "responsibility": "compliance"},
+    {"event_id": "EV-1004", "ts": "2026-07-20T09:00:00Z", "actor": "u-supplier", "stage": "procurement", "type": "capacity-confirmed",
+     "serials": [], "summary": "智舱厂确认 8 月光伏产能 3 套", "refs": {"supplier_id": "S-SMART"}, "responsibility": "supplier"},
+    {"event_id": "EV-1005", "ts": "2026-07-21T09:00:00Z", "actor": "u-purch", "stage": "procurement", "type": "capacity-lock-held",
+     "serials": [], "summary": "按 8 月已确认产能锁定 1 套", "refs": {"lock_id": "LK-2607-02"}, "responsibility": "procurement"},
+    {"event_id": "EV-1006", "ts": "2026-08-03T08:00:00Z", "actor": "u-factory", "stage": "production", "type": "production-started-config-frozen",
+     "serials": ["SN-TKC08-001"], "summary": "太空舱按 CFG-TKC08-US-01 v1 投产冻结", "refs": {"order_id": "SO-2026-051"}, "responsibility": "factory"},
+    {"event_id": "EV-1007", "ts": "2026-08-12T15:00:00Z", "actor": "u-qc", "stage": "qc", "type": "inspection-passed",
+     "serials": ["SN-TKC08-001"], "summary": "终检合格", "refs": {"inspection_id": "INS-004"}, "responsibility": "factory"},
+    {"event_id": "EV-1008", "ts": "2026-08-18T16:00:00Z", "actor": "u-log", "stage": "packing", "type": "container-sealed",
+     "serials": ["SN-TKC08-001"], "summary": "折叠核验装柜 SL-8010", "refs": {"container_id": "TCLU-440710"}, "responsibility": "logistics"},
+    {"event_id": "EV-1009", "ts": "2026-09-12T10:00:00Z", "actor": "u-station", "stage": "shipping", "type": "station-stock-in",
+     "serials": ["SN-TKC08-001"], "summary": "抵达洛杉矶站入库待安装；扫码可调取 UL 证书与 v1 档案", "refs": {"station_id": "ST-US-LA"}, "responsibility": "station"}
+  ]
+}
