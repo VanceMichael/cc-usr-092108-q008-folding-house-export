@@ -1,0 +1,2083 @@
+{
+  "ledger_id": "ledger-sample-008",
+  "domain": "folding-house-export",
+  "version": 1,
+  "sample_id": "sample-008",
+  "generated_at": "2026-09-15T00:00:00Z",
+  "modules": [
+    {
+      "module_id": "M-ELEC",
+      "name": "电气包",
+      "category": "electrical",
+      "options": [
+        {
+          "option_id": "E-EU",
+          "name": "欧标电气包 230V/50Hz CE",
+          "unit_prices": [
+            {
+              "currency": "EUR",
+              "amount": 4200
+            },
+            {
+              "currency": "USD",
+              "amount": 4600
+            }
+          ],
+          "weight_kg": 180,
+          "lead_time_days": 20,
+          "markets": [
+            "DE",
+            "FR",
+            "NL"
+          ]
+        },
+        {
+          "option_id": "E-US",
+          "name": "美标电气包 120/240V 60Hz UL",
+          "unit_prices": [
+            {
+              "currency": "USD",
+              "amount": 4900
+            }
+          ],
+          "weight_kg": 190,
+          "lead_time_days": 35,
+          "markets": [
+            "US",
+            "CA"
+          ]
+        }
+      ]
+    },
+    {
+      "module_id": "M-WIND",
+      "name": "结构抗风抗震件",
+      "category": "structure",
+      "options": [
+        {
+          "option_id": "W-STD",
+          "name": "标准抗风件 150kph/抗震2区",
+          "unit_prices": [
+            {
+              "currency": "EUR",
+              "amount": 1100
+            },
+            {
+              "currency": "USD",
+              "amount": 1200
+            }
+          ],
+          "weight_kg": 600,
+          "lead_time_days": 15,
+          "markets": [
+            "DE",
+            "FR",
+            "NL",
+            "US",
+            "CA"
+          ]
+        },
+        {
+          "option_id": "W-HUR",
+          "name": "飓风加强件 200kph/抗震4区",
+          "unit_prices": [
+            {
+              "currency": "EUR",
+              "amount": 1900
+            },
+            {
+              "currency": "USD",
+              "amount": 2100
+            }
+          ],
+          "weight_kg": 820,
+          "lead_time_days": 30,
+          "markets": [
+            "DE",
+            "US",
+            "CA",
+            "JP"
+          ]
+        }
+      ]
+    },
+    {
+      "module_id": "M-INT",
+      "name": "内装套件",
+      "category": "interior",
+      "options": [
+        {
+          "option_id": "I-STD",
+          "name": "标准内装",
+          "unit_prices": [
+            {
+              "currency": "EUR",
+              "amount": 7800
+            },
+            {
+              "currency": "USD",
+              "amount": 8500
+            }
+          ],
+          "weight_kg": 900,
+          "lead_time_days": 25,
+          "markets": [
+            "DE",
+            "FR",
+            "NL",
+            "US",
+            "CA"
+          ]
+        },
+        {
+          "option_id": "I-LUX",
+          "name": "轻奢内装",
+          "unit_prices": [
+            {
+              "currency": "EUR",
+              "amount": 11000
+            },
+            {
+              "currency": "USD",
+              "amount": 12000
+            }
+          ],
+          "weight_kg": 1050,
+          "lead_time_days": 35,
+          "markets": [
+            "DE",
+            "FR",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "module_id": "M-SMART",
+      "name": "智能中控",
+      "category": "smart",
+      "options": [
+        {
+          "option_id": "S-V2",
+          "name": "二代智能中控（芯片受限）",
+          "unit_prices": [
+            {
+              "currency": "EUR",
+              "amount": 2400
+            },
+            {
+              "currency": "USD",
+              "amount": 2600
+            }
+          ],
+          "weight_kg": 25,
+          "lead_time_days": 60,
+          "markets": [
+            "DE",
+            "FR",
+            "NL",
+            "US",
+            "CA"
+          ]
+        },
+        {
+          "option_id": "S-V1",
+          "name": "一代智能中控",
+          "unit_prices": [
+            {
+              "currency": "EUR",
+              "amount": 1700
+            },
+            {
+              "currency": "USD",
+              "amount": 1800
+            }
+          ],
+          "weight_kg": 25,
+          "lead_time_days": 20,
+          "markets": [
+            "DE",
+            "US"
+          ]
+        }
+      ]
+    },
+    {
+      "module_id": "M-PV",
+      "name": "智能光伏包",
+      "category": "smart",
+      "options": [
+        {
+          "option_id": "P-PKG",
+          "name": "屋顶光伏与储能包",
+          "unit_prices": [
+            {
+              "currency": "EUR",
+              "amount": 2900
+            },
+            {
+              "currency": "USD",
+              "amount": 3200
+            }
+          ],
+          "weight_kg": 220,
+          "lead_time_days": 40,
+          "markets": [
+            "US",
+            "CA",
+            "DE"
+          ]
+        }
+      ]
+    }
+  ],
+  "product_families": [
+    {
+      "family_id": "FW-DUPLEX",
+      "name": "双翼房",
+      "models": [
+        {
+          "model_id": "D-40",
+          "name": "双翼房 40㎡"
+        },
+        {
+          "model_id": "D-30",
+          "name": "双翼房 30㎡"
+        }
+      ]
+    },
+    {
+      "family_id": "FW-POD",
+      "name": "太空舱",
+      "models": [
+        {
+          "model_id": "P-28",
+          "name": "太空舱 28㎡"
+        },
+        {
+          "model_id": "P-36",
+          "name": "太空舱 36㎡"
+        }
+      ]
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "SUP-SMART",
+      "name": "智核电子（虚构）"
+    },
+    {
+      "id": "SUP-STRUCT",
+      "name": "恒固钢结构（虚构）"
+    },
+    {
+      "id": "SUP-INT",
+      "name": "安居内装（虚构）"
+    }
+  ],
+  "service_stations": [
+    {
+      "station_id": "STN-HH",
+      "name": "汉堡服务站（虚构）",
+      "country": "DE"
+    },
+    {
+      "station_id": "STN-LA",
+      "name": "洛杉矶服务站（虚构）",
+      "country": "US"
+    }
+  ],
+  "customers": [
+    {
+      "customer_id": "CUS-ALPEN",
+      "name": "阿尔卑斯营地有限公司（虚构）",
+      "country": "DE"
+    },
+    {
+      "customer_id": "CUS-DESERT",
+      "name": "Desert Sky Resort LLC（虚构）",
+      "country": "US"
+    }
+  ],
+  "capacity_slots": [
+    {
+      "slot_id": "SLOT-V2-Q2",
+      "supplier_id": "SUP-SMART",
+      "module_id": "M-SMART",
+      "option_id": "S-V2",
+      "window_start": "2026-04-01",
+      "window_end": "2026-05-31",
+      "confirmed_qty": 6
+    },
+    {
+      "slot_id": "SLOT-V2-Q3",
+      "supplier_id": "SUP-SMART",
+      "module_id": "M-SMART",
+      "option_id": "S-V2",
+      "window_start": "2026-06-01",
+      "window_end": "2026-08-31",
+      "confirmed_qty": 4
+    },
+    {
+      "slot_id": "SLOT-HUR-Q2",
+      "supplier_id": "SUP-STRUCT",
+      "module_id": "M-WIND",
+      "option_id": "W-HUR",
+      "window_start": "2026-03-01",
+      "window_end": "2026-05-31",
+      "confirmed_qty": 20
+    }
+  ],
+  "orders": [
+    {
+      "order_id": "ORD-2601",
+      "customer_id": "CUS-ALPEN",
+      "destination_country": "DE",
+      "family_id": "FW-DUPLEX",
+      "model_id": "D-40",
+      "quantity": 4,
+      "sales_owner": "林汐 E1003",
+      "inquiry": {
+        "inquiry_id": "INQ-2601",
+        "received_at": "2026-01-08T09:12:00Z",
+        "requirements": "德国巴伐利亚营地，4套双翼房40㎡，需CE电气、营地冬季抗风、轻奢内装评估，要求5月到位。"
+      },
+      "quotation": {
+        "quotation_id": "Q-2601",
+        "lines": [
+          {
+            "currency": "EUR",
+            "unit_price": 36800,
+            "valid_until": "2026-02-15T23:59:00Z"
+          },
+          {
+            "currency": "USD",
+            "unit_price": 40500,
+            "valid_until": "2026-02-15T23:59:00Z"
+          },
+          {
+            "currency": "GBP",
+            "unit_price": 33900,
+            "valid_until": "2026-01-15T23:59:00Z"
+          }
+        ],
+        "accepted": {
+          "currency": "EUR",
+          "accepted_at": "2026-01-20T14:05:00Z"
+        }
+      },
+      "configuration_revisions": [
+        {
+          "revision": 1,
+          "status": "superseded",
+          "options": [
+            {
+              "module_id": "M-ELEC",
+              "option_id": "E-EU",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-WIND",
+              "option_id": "W-STD",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-INT",
+              "option_id": "I-STD",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-SMART",
+              "option_id": "S-V2",
+              "quantity": 1
+            }
+          ],
+          "totals": {
+            "price": [
+              {
+                "currency": "EUR",
+                "amount": 15500
+              },
+              {
+                "currency": "USD",
+                "amount": 16900
+              }
+            ],
+            "weight_kg": 1705,
+            "earliest_delivery": "2026-04-20"
+          },
+          "electrical": {
+            "voltage": "230V",
+            "frequency_hz": 50,
+            "standard": "CE (LVD+EMC)",
+            "plugs": "Type F (Schuko)"
+          },
+          "wind_seismic_rating": {
+            "wind_kph": 150,
+            "seismic": "Zone 2"
+          },
+          "interior": "标准内装",
+          "signed_by": "安娜·布鲁纳 / 周衡 E2041",
+          "signed_at": "2026-01-25T10:00:00Z"
+        },
+        {
+          "revision": 2,
+          "status": "signed",
+          "options": [
+            {
+              "module_id": "M-ELEC",
+              "option_id": "E-EU",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-WIND",
+              "option_id": "W-HUR",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-INT",
+              "option_id": "I-LUX",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-SMART",
+              "option_id": "S-V2",
+              "quantity": 1
+            }
+          ],
+          "totals": {
+            "price": [
+              {
+                "currency": "EUR",
+                "amount": 19500
+              },
+              {
+                "currency": "USD",
+                "amount": 21300
+              }
+            ],
+            "weight_kg": 2075,
+            "earliest_delivery": "2026-04-20"
+          },
+          "electrical": {
+            "voltage": "230V",
+            "frequency_hz": 50,
+            "standard": "CE (LVD+EMC)",
+            "plugs": "Type F (Schuko)"
+          },
+          "wind_seismic_rating": {
+            "wind_kph": 200,
+            "seismic": "Zone 4"
+          },
+          "interior": "轻奢内装",
+          "signed_by": "安娜·布鲁纳 / 周衡 E2041",
+          "signed_at": "2026-02-06T11:30:00Z"
+        }
+      ],
+      "change_orders": [
+        {
+          "change_id": "CO-2601-01",
+          "from_revision": 1,
+          "to_revision": 2,
+          "reason": "客户在投产前提出：营地位于山口，要求200kph抗风；内装升级为轻奢方案。",
+          "affected_parts": [
+            {
+              "action": "replace",
+              "module_id": "M-WIND",
+              "option_id": "W-HUR"
+            },
+            {
+              "action": "replace",
+              "module_id": "M-INT",
+              "option_id": "I-LUX"
+            }
+          ],
+          "price_delta": [
+            {
+              "currency": "EUR",
+              "amount": 4000
+            },
+            {
+              "currency": "USD",
+              "amount": 4400
+            }
+          ],
+          "weight_delta_kg": 370,
+          "delivery_delta_days": 0,
+          "requested_by": "安娜·布鲁纳（经林汐 E1003）",
+          "approved_by_customer": "安娜·布鲁纳",
+          "approved_by_engineering": "周衡 E2041",
+          "approved_at": "2026-02-06T11:30:00Z"
+        }
+      ],
+      "certificates": [
+        {
+          "certificate_id": "CERT-CE-2601",
+          "type": "CE 符合性声明（LVD+EMC）",
+          "country": "DE",
+          "status": "approved",
+          "reviewed_by": "许安 E3018",
+          "reviewed_at": "2026-02-09T09:40:00Z",
+          "access_grants": [
+            {
+              "actor": "赵启 E4007",
+              "role": "procurement",
+              "at": "2026-02-10T08:30:00Z",
+              "purpose": "供应商电气件备案"
+            },
+            {
+              "actor": "克劳迪娅·韦伯 CW01",
+              "role": "service_station",
+              "at": "2026-04-28T15:20:00Z",
+              "purpose": "汉堡港清关申报"
+            }
+          ]
+        },
+        {
+          "certificate_id": "CERT-STRUCT-2601",
+          "type": "结构抗风抗震计算书（200kph/Zone4）",
+          "country": "DE",
+          "status": "approved",
+          "reviewed_by": "许安 E3018",
+          "reviewed_at": "2026-02-09T10:10:00Z",
+          "access_grants": [
+            {
+              "actor": "周衡 E2041",
+              "role": "engineering",
+              "at": "2026-02-09T10:20:00Z",
+              "purpose": "工程留档"
+            }
+          ]
+        },
+        {
+          "certificate_id": "CERT-CO-2601",
+          "type": "原产地证书",
+          "country": "DE",
+          "status": "approved",
+          "reviewed_by": "许安 E3018",
+          "reviewed_at": "2026-02-11T14:00:00Z",
+          "access_grants": [
+            {
+              "actor": "克劳迪娅·韦伯 CW01",
+              "role": "service_station",
+              "at": "2026-04-28T15:25:00Z",
+              "purpose": "汉堡港清关申报"
+            }
+          ]
+        }
+      ],
+      "capacity_locks": [
+        {
+          "lock_id": "LOCK-V2-2601",
+          "slot_id": "SLOT-V2-Q2",
+          "module_id": "M-SMART",
+          "option_id": "S-V2",
+          "qty": 4,
+          "status": "active",
+          "created_at": "2026-01-26T09:00:00Z"
+        }
+      ],
+      "purchase_orders": [
+        {
+          "po_id": "PO-2601-01",
+          "supplier_id": "SUP-SMART",
+          "lines": [
+            {
+              "module_id": "M-SMART",
+              "option_id": "S-V2",
+              "qty": 4
+            }
+          ],
+          "issued_at": "2026-02-10T08:00:00Z"
+        },
+        {
+          "po_id": "PO-2601-02",
+          "supplier_id": "SUP-STRUCT",
+          "lines": [
+            {
+              "module_id": "M-WIND",
+              "option_id": "W-HUR",
+              "qty": 4
+            }
+          ],
+          "issued_at": "2026-02-10T08:05:00Z"
+        },
+        {
+          "po_id": "PO-2601-03",
+          "supplier_id": "SUP-INT",
+          "lines": [
+            {
+              "module_id": "M-INT",
+              "option_id": "I-LUX",
+              "qty": 4
+            }
+          ],
+          "issued_at": "2026-02-10T08:10:00Z"
+        }
+      ],
+      "batches": [
+        {
+          "batch_id": "BAT-2601-A",
+          "revision": 2,
+          "quantity": 4,
+          "production_released_at": "2026-03-02T08:30:00Z",
+          "released_by": "孙磊 E5012",
+          "release_event_id": "ev-2601-prod",
+          "units": [
+            {
+              "serial_number": "FH-DPX-0001",
+              "minted_event_id": "ev-2601-mint-0001",
+              "qc_items": [
+                {
+                  "qc_id": "QC-0001-E",
+                  "item": "电气安全",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0001-W",
+                  "item": "焊缝与抗风件扭矩",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0001-F",
+                  "item": "折叠机构开合",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0001-I",
+                  "item": "轻奢内装外观",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0001-S",
+                  "item": "中控联调",
+                  "result": "pass",
+                  "closed": true
+                }
+              ]
+            },
+            {
+              "serial_number": "FH-DPX-0002",
+              "minted_event_id": "ev-2601-mint-0002",
+              "qc_items": [
+                {
+                  "qc_id": "QC-0002-E",
+                  "item": "电气安全",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0002-W",
+                  "item": "焊缝与抗风件扭矩",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0002-F",
+                  "item": "折叠机构开合",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0002-I",
+                  "item": "轻奢内装外观",
+                  "result": "concession",
+                  "closed": true,
+                  "note": "衣柜门板划痕，客户书面同意让步接收并折价2%",
+                  "approved_by": "安娜·布鲁纳"
+                },
+                {
+                  "qc_id": "QC-0002-S",
+                  "item": "中控联调",
+                  "result": "pass",
+                  "closed": true
+                }
+              ]
+            },
+            {
+              "serial_number": "FH-DPX-0003",
+              "minted_event_id": "ev-2601-mint-0003",
+              "qc_items": [
+                {
+                  "qc_id": "QC-0003-E",
+                  "item": "电气安全",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0003-W",
+                  "item": "焊缝与抗风件扭矩",
+                  "result": "reject",
+                  "closed": true,
+                  "note": "加强件焊缝探伤不合格，返厂补焊",
+                  "approved_by": "周衡 E2041"
+                },
+                {
+                  "qc_id": "QC-0003-W2",
+                  "item": "焊缝复检",
+                  "result": "pass",
+                  "closed": true,
+                  "note": "补焊后探伤合格"
+                },
+                {
+                  "qc_id": "QC-0003-F",
+                  "item": "折叠机构开合",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0003-I",
+                  "item": "轻奢内装外观",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0003-S",
+                  "item": "中控联调",
+                  "result": "pass",
+                  "closed": true
+                }
+              ]
+            },
+            {
+              "serial_number": "FH-DPX-0004",
+              "minted_event_id": "ev-2601-mint-0004",
+              "qc_items": [
+                {
+                  "qc_id": "QC-0004-E",
+                  "item": "电气安全",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0004-W",
+                  "item": "焊缝与抗风件扭矩",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0004-F",
+                  "item": "折叠机构开合",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0004-I",
+                  "item": "轻奢内装外观",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-0004-S",
+                  "item": "中控联调",
+                  "result": "pass",
+                  "closed": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "containers": [
+        {
+          "container_no": "CTLU-1234567",
+          "revision": 2,
+          "sealed_at": "2026-04-08T16:00:00Z",
+          "loading_event_id": "ev-2601-load",
+          "serials": [
+            "FH-DPX-0001",
+            "FH-DPX-0002",
+            "FH-DPX-0003",
+            "FH-DPX-0004"
+          ]
+        }
+      ],
+      "shipments": [
+        {
+          "shipment_id": "SHP-2601-1",
+          "seq": 1,
+          "container_nos": [
+            "CTLU-1234567"
+          ],
+          "serials": [
+            "FH-DPX-0001",
+            "FH-DPX-0002",
+            "FH-DPX-0003",
+            "FH-DPX-0004"
+          ],
+          "bill_of_lading": "BL-HAM-2601-7781（虚构）",
+          "shipped_event_id": "ev-2601-ship",
+          "shipped_at": "2026-04-10T11:00:00Z",
+          "arrived_event_id": "ev-2601-arrive",
+          "arrived_at": "2026-05-04T08:00:00Z"
+        }
+      ],
+      "exceptions": [
+        {
+          "exception_id": "EX-QC-2601-03",
+          "type": "inspection_failure",
+          "serial_number": "FH-DPX-0003",
+          "opened_event_id": "ev-2601-qc-reject",
+          "opened_at": "2026-03-23T10:30:00Z",
+          "closed": true,
+          "closed_event_id": "ev-2601-qc-rework",
+          "closed_at": "2026-03-25T15:00:00Z",
+          "responsibility": "manufacturing（工厂焊接班组）",
+          "resolution": "返厂补焊并复检合格后放行，费用工厂承担。"
+        },
+        {
+          "exception_id": "EX-PERMIT-2601",
+          "type": "permit_delay",
+          "serial_number": "FH-DPX-0001",
+          "opened_event_id": "ev-2601-permit-open",
+          "opened_at": "2026-05-05T09:00:00Z",
+          "closed": true,
+          "closed_event_id": "ev-2601-permit-close",
+          "closed_at": "2026-05-20T17:00:00Z",
+          "responsibility": "customer（业主施工许可延迟）",
+          "resolution": "汉堡港保税仓滞留14天，仓储费客户承担；房屋序列号与配置版本不变。"
+        }
+      ],
+      "offline_installs": [
+        {
+          "offline_id": "OFF-2601-01",
+          "shipment_id": "SHP-2601-1",
+          "serials": [
+            "FH-DPX-0001",
+            "FH-DPX-0002",
+            "FH-DPX-0003",
+            "FH-DPX-0004"
+          ],
+          "station_id": "STN-HH",
+          "captured_at": "2026-05-22T16:40:00Z",
+          "captured_by": "克劳迪娅·韦伯 CW01",
+          "signature_fingerprint": "a13f9c22e7b04d85e9c11f6a02d73b94",
+          "sync_event_id": "ev-2601-sync",
+          "synced_at": "2026-05-24T08:15:00Z",
+          "reconciled_at": "2026-05-24T08:30:00Z"
+        }
+      ],
+      "acceptance": {
+        "acceptance_event_id": "ev-2601-accept-done",
+        "signed_by_customer": "安娜·布鲁纳",
+        "signed_at": "2026-05-22T16:40:00Z",
+        "completed_at": "2026-05-25T10:00:00Z",
+        "items": [
+          {
+            "serial_number": "FH-DPX-0001",
+            "revision": 2,
+            "checks": [
+              {
+                "module_id": "M-ELEC",
+                "option_id": "E-EU",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-WIND",
+                "option_id": "W-HUR",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-INT",
+                "option_id": "I-LUX",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-SMART",
+                "option_id": "S-V2",
+                "result": "matched"
+              }
+            ]
+          },
+          {
+            "serial_number": "FH-DPX-0002",
+            "revision": 2,
+            "checks": [
+              {
+                "module_id": "M-ELEC",
+                "option_id": "E-EU",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-WIND",
+                "option_id": "W-HUR",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-INT",
+                "option_id": "I-LUX",
+                "result": "matched",
+                "note": "划痕让步项已按折价2%结算"
+              },
+              {
+                "module_id": "M-SMART",
+                "option_id": "S-V2",
+                "result": "matched"
+              }
+            ]
+          },
+          {
+            "serial_number": "FH-DPX-0003",
+            "revision": 2,
+            "checks": [
+              {
+                "module_id": "M-ELEC",
+                "option_id": "E-EU",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-WIND",
+                "option_id": "W-HUR",
+                "result": "matched",
+                "note": "补焊焊缝现场复核正常"
+              },
+              {
+                "module_id": "M-INT",
+                "option_id": "I-LUX",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-SMART",
+                "option_id": "S-V2",
+                "result": "matched"
+              }
+            ]
+          },
+          {
+            "serial_number": "FH-DPX-0004",
+            "revision": 2,
+            "checks": [
+              {
+                "module_id": "M-ELEC",
+                "option_id": "E-EU",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-WIND",
+                "option_id": "W-HUR",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-INT",
+                "option_id": "I-LUX",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-SMART",
+                "option_id": "S-V2",
+                "result": "matched"
+              }
+            ]
+          }
+        ]
+      },
+      "warranty_claims": [
+        {
+          "claim_id": "WAR-2601-09",
+          "serial_number": "FH-DPX-0003",
+          "opened_event_id": "ev-2601-war-open",
+          "opened_at": "2026-08-10T13:20:00Z",
+          "issue": "二代中控运行中偶发重启，约每周一次。",
+          "responsibility": "supplier",
+          "resolution": "汉堡站上门更换控制主板（智核电子批次缺陷），复测72小时无重启；备件与工时由供应商承担。",
+          "status": "closed"
+        }
+      ],
+      "events": [
+        {
+          "event_id": "ev-2601-inq",
+          "at": "2026-01-08T09:12:00Z",
+          "stage": "inquiry",
+          "type": "inquiry_received",
+          "actor": "林汐 E1003",
+          "role": "sales",
+          "decided_by": "安娜·布鲁纳",
+          "summary": "收到4套双翼房询盘，目的国德国。",
+          "refs": {
+            "inquiry_id": "INQ-2601"
+          }
+        },
+        {
+          "event_id": "ev-2601-quote",
+          "at": "2026-01-10T15:00:00Z",
+          "stage": "quotation",
+          "type": "quotation_issued",
+          "actor": "林汐 E1003",
+          "role": "sales",
+          "decided_by": "林汐 E1003",
+          "summary": "出具EUR/USD/GBP三币种报价，GBP线1月15日到期。",
+          "refs": {
+            "quotation_id": "Q-2601"
+          }
+        },
+        {
+          "event_id": "ev-2601-accept",
+          "at": "2026-01-20T14:05:00Z",
+          "stage": "quotation",
+          "type": "quotation_accepted",
+          "actor": "安娜·布鲁纳",
+          "role": "customer",
+          "decided_by": "安娜·布鲁纳",
+          "summary": "客户在EUR线有效期内确认欧元报价。",
+          "refs": {
+            "quotation_id": "Q-2601",
+            "currency": "EUR"
+          }
+        },
+        {
+          "event_id": "ev-2601-rev1",
+          "at": "2026-01-25T10:00:00Z",
+          "stage": "configuration",
+          "type": "revision_signed",
+          "actor": "周衡 E2041",
+          "role": "engineering",
+          "decided_by": "安娜·布鲁纳 / 周衡 E2041",
+          "summary": "配置版本1签署：欧标电气、标准抗风、标准内装、二代中控。",
+          "refs": {
+            "revision": 1
+          }
+        },
+        {
+          "event_id": "ev-2601-lock",
+          "at": "2026-01-26T09:00:00Z",
+          "stage": "procurement",
+          "type": "capacity_locked",
+          "actor": "赵启 E4007",
+          "role": "procurement",
+          "decided_by": "赵启 E4007",
+          "summary": "锁定二代中控Q2已确认产能4套（槽位容量6）。",
+          "refs": {
+            "lock_id": "LOCK-V2-2601",
+            "slot_id": "SLOT-V2-Q2"
+          }
+        },
+        {
+          "event_id": "ev-2601-co",
+          "at": "2026-02-02T11:00:00Z",
+          "stage": "configuration",
+          "type": "change_requested",
+          "actor": "林汐 E1003",
+          "role": "sales",
+          "decided_by": "安娜·布鲁纳",
+          "summary": "客户申请升级200kph飓风件与轻奢内装。",
+          "refs": {
+            "change_id": "CO-2601-01"
+          }
+        },
+        {
+          "event_id": "ev-2601-rev2",
+          "at": "2026-02-06T11:30:00Z",
+          "stage": "configuration",
+          "type": "revision_signed",
+          "actor": "周衡 E2041",
+          "role": "engineering",
+          "decided_by": "安娜·布鲁纳 / 周衡 E2041",
+          "summary": "配置版本2签署：每座+EUR 4000、+370kg，交期不变；版本1作废。",
+          "refs": {
+            "revision": 2,
+            "change_id": "CO-2601-01"
+          }
+        },
+        {
+          "event_id": "ev-2601-cert",
+          "at": "2026-02-09T10:10:00Z",
+          "stage": "compliance",
+          "type": "certificates_approved",
+          "actor": "许安 E3018",
+          "role": "compliance",
+          "decided_by": "许安 E3018",
+          "summary": "CE、结构计算书、原产地证评审通过，准予投产。",
+          "refs": {}
+        },
+        {
+          "event_id": "ev-2601-po",
+          "at": "2026-02-10T08:10:00Z",
+          "stage": "procurement",
+          "type": "purchase_orders_issued",
+          "actor": "赵启 E4007",
+          "role": "procurement",
+          "decided_by": "赵启 E4007",
+          "summary": "向智核、恒固、安居下达三张采购单。",
+          "refs": {
+            "po_ids": [
+              "PO-2601-01",
+              "PO-2601-02",
+              "PO-2601-03"
+            ]
+          }
+        },
+        {
+          "event_id": "ev-2601-prod",
+          "at": "2026-03-02T08:30:00Z",
+          "stage": "production",
+          "type": "production_released",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "按版本2投产4套并冻结：此后不得静默切换版本。",
+          "refs": {
+            "batch_id": "BAT-2601-A",
+            "revision": 2,
+            "quantity": 4
+          }
+        },
+        {
+          "event_id": "ev-2601-mint-0001",
+          "at": "2026-03-20T10:00:00Z",
+          "stage": "qc",
+          "type": "serial_minted",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "质检合格，序列号打刻。",
+          "serial_number": "FH-DPX-0001"
+        },
+        {
+          "event_id": "ev-2601-mint-0002",
+          "at": "2026-03-21T10:00:00Z",
+          "stage": "qc",
+          "type": "serial_minted",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "内装划痕让步接收（客户批准折价2%），序列号打刻。",
+          "serial_number": "FH-DPX-0002"
+        },
+        {
+          "event_id": "ev-2601-mint-0003",
+          "at": "2026-03-22T10:00:00Z",
+          "stage": "qc",
+          "type": "serial_minted",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "序列号打刻，待焊缝返工闭环。",
+          "serial_number": "FH-DPX-0003"
+        },
+        {
+          "event_id": "ev-2601-qc-reject",
+          "at": "2026-03-23T10:30:00Z",
+          "stage": "qc",
+          "type": "inspection_failure_opened",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "周衡 E2041",
+          "summary": "加强件焊缝探伤不合格，判拒收并挂起放行。",
+          "serial_number": "FH-DPX-0003"
+        },
+        {
+          "event_id": "ev-2601-qc-rework",
+          "at": "2026-03-25T15:00:00Z",
+          "stage": "qc",
+          "type": "inspection_failure_closed",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "补焊后复检合格，不合格项闭环。",
+          "serial_number": "FH-DPX-0003"
+        },
+        {
+          "event_id": "ev-2601-mint-0004",
+          "at": "2026-03-26T10:00:00Z",
+          "stage": "qc",
+          "type": "serial_minted",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "质检合格，序列号打刻。",
+          "serial_number": "FH-DPX-0004"
+        },
+        {
+          "event_id": "ev-2601-load",
+          "at": "2026-04-08T16:00:00Z",
+          "stage": "loading",
+          "type": "container_sealed",
+          "actor": "何帆 E6020",
+          "role": "logistics",
+          "decided_by": "何帆 E6020",
+          "summary": "4套按版本2折叠装柜并封箱，箱内序列号/版本冻结。",
+          "refs": {
+            "container_no": "CTLU-1234567",
+            "revision": 2
+          }
+        },
+        {
+          "event_id": "ev-2601-ship",
+          "at": "2026-04-10T11:00:00Z",
+          "stage": "shipping",
+          "type": "shipped",
+          "actor": "何帆 E6020",
+          "role": "logistics",
+          "decided_by": "何帆 E6020",
+          "summary": "海运离港，提单BL-HAM-2601-7781。",
+          "refs": {
+            "shipment_id": "SHP-2601-1"
+          }
+        },
+        {
+          "event_id": "ev-2601-cert-access",
+          "at": "2026-04-28T15:20:00Z",
+          "stage": "compliance",
+          "type": "certificate_accessed",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "克劳迪娅·韦伯 CW01",
+          "summary": "汉堡站为清关调阅CE证书与原产地证，访问已留痕。",
+          "refs": {
+            "certificate_ids": [
+              "CERT-CE-2601",
+              "CERT-CO-2601"
+            ]
+          }
+        },
+        {
+          "event_id": "ev-2601-arrive",
+          "at": "2026-05-04T08:00:00Z",
+          "stage": "arrival",
+          "type": "arrived",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "克劳迪娅·韦伯 CW01",
+          "summary": "抵达汉堡港。",
+          "refs": {
+            "shipment_id": "SHP-2601-1"
+          }
+        },
+        {
+          "event_id": "ev-2601-permit-open",
+          "at": "2026-05-05T09:00:00Z",
+          "stage": "exception",
+          "type": "permit_delay_opened",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "安娜·布鲁纳",
+          "summary": "业主施工许可未下发，房屋转保税仓等待。",
+          "serial_number": "FH-DPX-0001"
+        },
+        {
+          "event_id": "ev-2601-permit-close",
+          "at": "2026-05-20T17:00:00Z",
+          "stage": "exception",
+          "type": "permit_delay_closed",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "安娜·布鲁纳",
+          "summary": "许可到位，滞留14天结束，安排进场展开。",
+          "serial_number": "FH-DPX-0001"
+        },
+        {
+          "event_id": "ev-2601-offline",
+          "at": "2026-05-22T16:40:00Z",
+          "stage": "installation",
+          "type": "offline_install_captured",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "安娜·布鲁纳",
+          "summary": "山口现场断网，展开读数与客户签署离线保存于终端。",
+          "refs": {
+            "offline_id": "OFF-2601-01"
+          }
+        },
+        {
+          "event_id": "ev-2601-sync",
+          "at": "2026-05-24T08:15:00Z",
+          "stage": "installation",
+          "type": "offline_synced",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "克劳迪娅·韦伯 CW01",
+          "summary": "恢复网络后回传离线记录，08:30与对账单勾对一致。",
+          "refs": {
+            "offline_id": "OFF-2601-01"
+          }
+        },
+        {
+          "event_id": "ev-2601-accept-done",
+          "at": "2026-05-25T10:00:00Z",
+          "stage": "acceptance",
+          "type": "acceptance_completed",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "安娜·布鲁纳",
+          "summary": "按签署版本2逐项核对4套全部相符，验收完成（客户签署于05-22离线采集）。",
+          "refs": {
+            "signed_at": "2026-05-22T16:40:00Z"
+          }
+        },
+        {
+          "event_id": "ev-2601-war-open",
+          "at": "2026-08-10T13:20:00Z",
+          "stage": "warranty",
+          "type": "warranty_opened",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "克劳迪娅·韦伯 CW01",
+          "summary": "凭序列号报修中控偶发重启，调取制造到安装全链记录。",
+          "serial_number": "FH-DPX-0003"
+        },
+        {
+          "event_id": "ev-2601-war-close",
+          "at": "2026-08-22T16:00:00Z",
+          "stage": "warranty",
+          "type": "warranty_closed",
+          "actor": "克劳迪娅·韦伯 CW01",
+          "role": "service_station",
+          "decided_by": "赵启 E4007",
+          "summary": "判定供应商批次缺陷，更换主板结案，费用向智核电子追偿。",
+          "serial_number": "FH-DPX-0003"
+        }
+      ]
+    },
+    {
+      "order_id": "ORD-2607",
+      "customer_id": "CUS-DESERT",
+      "destination_country": "US",
+      "family_id": "FW-POD",
+      "model_id": "P-28",
+      "quantity": 3,
+      "sales_owner": "林汐 E1003",
+      "inquiry": {
+        "inquiry_id": "INQ-2607",
+        "received_at": "2026-02-01T07:45:00Z",
+        "requirements": "美国加州沙漠景区，3套太空舱28㎡，UL电气、飓风抗风、光伏储能、二代中控，希望5月全部到场。"
+      },
+      "quotation": {
+        "quotation_id": "Q-2607",
+        "lines": [
+          {
+            "currency": "USD",
+            "unit_price": 33900,
+            "valid_until": "2026-02-20T23:59:00Z"
+          }
+        ],
+        "accepted": {
+          "currency": "USD",
+          "accepted_at": "2026-02-05T19:30:00Z"
+        }
+      },
+      "configuration_revisions": [
+        {
+          "revision": 1,
+          "status": "signed",
+          "options": [
+            {
+              "module_id": "M-ELEC",
+              "option_id": "E-US",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-WIND",
+              "option_id": "W-HUR",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-INT",
+              "option_id": "I-STD",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-SMART",
+              "option_id": "S-V2",
+              "quantity": 1
+            },
+            {
+              "module_id": "M-PV",
+              "option_id": "P-PKG",
+              "quantity": 1
+            }
+          ],
+          "totals": {
+            "price": [
+              {
+                "currency": "USD",
+                "amount": 21300
+              }
+            ],
+            "weight_kg": 2155,
+            "earliest_delivery": "2026-06-01"
+          },
+          "electrical": {
+            "voltage": "120/240V",
+            "frequency_hz": 60,
+            "standard": "UL/ETL",
+            "plugs": "NEMA 5-15/14-50"
+          },
+          "wind_seismic_rating": {
+            "wind_kph": 200,
+            "seismic": "Zone 4 (IBC)"
+          },
+          "interior": "标准内装",
+          "signed_by": "Rachel Kim / 周衡 E2041",
+          "signed_at": "2026-02-08T09:00:00Z"
+        }
+      ],
+      "certificates": [
+        {
+          "certificate_id": "CERT-UL-2607",
+          "type": "UL/ETL 电气认证",
+          "country": "US",
+          "status": "approved",
+          "reviewed_by": "许安 E3018",
+          "reviewed_at": "2026-02-15T10:00:00Z",
+          "access_grants": [
+            {
+              "actor": "Mike Donovan MD07",
+              "role": "service_station",
+              "at": "2026-05-20T18:00:00Z",
+              "purpose": "洛杉矶港清关与加州能效备案"
+            }
+          ]
+        },
+        {
+          "certificate_id": "CERT-IBC-2607",
+          "type": "IBC 结构抗风抗震认证（200kph/Zone4）",
+          "country": "US",
+          "status": "approved",
+          "reviewed_by": "许安 E3018",
+          "reviewed_at": "2026-02-15T10:20:00Z",
+          "access_grants": [
+            {
+              "actor": "Mike Donovan MD07",
+              "role": "service_station",
+              "at": "2026-05-20T18:05:00Z",
+              "purpose": "县建筑许可申请"
+            }
+          ]
+        }
+      ],
+      "capacity_locks": [
+        {
+          "lock_id": "LOCK-V2-2607-A",
+          "slot_id": "SLOT-V2-Q2",
+          "module_id": "M-SMART",
+          "option_id": "S-V2",
+          "qty": 2,
+          "status": "active",
+          "created_at": "2026-02-09T10:00:00Z"
+        },
+        {
+          "lock_id": "LOCK-V2-2607-B",
+          "slot_id": "SLOT-V2-Q3",
+          "module_id": "M-SMART",
+          "option_id": "S-V2",
+          "qty": 1,
+          "status": "active",
+          "created_at": "2026-02-09T10:05:00Z"
+        }
+      ],
+      "purchase_orders": [
+        {
+          "po_id": "PO-2607-01",
+          "supplier_id": "SUP-SMART",
+          "lines": [
+            {
+              "module_id": "M-SMART",
+              "option_id": "S-V2",
+              "qty": 3
+            }
+          ],
+          "issued_at": "2026-02-16T08:00:00Z"
+        },
+        {
+          "po_id": "PO-2607-02",
+          "supplier_id": "SUP-STRUCT",
+          "lines": [
+            {
+              "module_id": "M-WIND",
+              "option_id": "W-HUR",
+              "qty": 3
+            }
+          ],
+          "issued_at": "2026-02-16T08:05:00Z"
+        }
+      ],
+      "batches": [
+        {
+          "batch_id": "BAT-2607-A",
+          "revision": 1,
+          "quantity": 2,
+          "production_released_at": "2026-03-20T08:30:00Z",
+          "released_by": "孙磊 E5012",
+          "release_event_id": "ev-2607-prod-a",
+          "units": [
+            {
+              "serial_number": "FH-POD-1001",
+              "minted_event_id": "ev-2607-mint-1001",
+              "qc_items": [
+                {
+                  "qc_id": "QC-1001-E1",
+                  "item": "耐压测试",
+                  "result": "reject",
+                  "closed": true,
+                  "note": "端子排耐压击穿，整排更换",
+                  "approved_by": "周衡 E2041"
+                },
+                {
+                  "qc_id": "QC-1001-E2",
+                  "item": "耐压复检",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1001-W",
+                  "item": "抗风件扭矩",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1001-F",
+                  "item": "折叠机构开合",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1001-S",
+                  "item": "中控与光伏联调",
+                  "result": "pass",
+                  "closed": true
+                }
+              ]
+            },
+            {
+              "serial_number": "FH-POD-1002",
+              "minted_event_id": "ev-2607-mint-1002",
+              "qc_items": [
+                {
+                  "qc_id": "QC-1002-E",
+                  "item": "电气安全",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1002-W",
+                  "item": "抗风件扭矩",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1002-F",
+                  "item": "折叠机构开合",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1002-S",
+                  "item": "中控与光伏联调",
+                  "result": "pass",
+                  "closed": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "batch_id": "BAT-2607-B",
+          "revision": 1,
+          "quantity": 1,
+          "production_released_at": "2026-06-15T08:30:00Z",
+          "released_by": "孙磊 E5012",
+          "release_event_id": "ev-2607-prod-b",
+          "units": [
+            {
+              "serial_number": "FH-POD-1003",
+              "minted_event_id": "ev-2607-mint-1003",
+              "qc_items": [
+                {
+                  "qc_id": "QC-1003-E",
+                  "item": "电气安全",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1003-W",
+                  "item": "抗风件扭矩",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1003-F",
+                  "item": "折叠机构开合",
+                  "result": "pass",
+                  "closed": true
+                },
+                {
+                  "qc_id": "QC-1003-S",
+                  "item": "中控与光伏联调",
+                  "result": "pass",
+                  "closed": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "containers": [
+        {
+          "container_no": "CTLU-7654321",
+          "revision": 1,
+          "sealed_at": "2026-05-04T15:00:00Z",
+          "loading_event_id": "ev-2607-load-a",
+          "serials": [
+            "FH-POD-1001",
+            "FH-POD-1002"
+          ]
+        },
+        {
+          "container_no": "CTLU-7654322",
+          "revision": 1,
+          "sealed_at": "2026-07-01T15:00:00Z",
+          "loading_event_id": "ev-2607-load-b",
+          "serials": [
+            "FH-POD-1003"
+          ]
+        }
+      ],
+      "shipments": [
+        {
+          "shipment_id": "SHP-2607-1",
+          "seq": 1,
+          "container_nos": [
+            "CTLU-7654321"
+          ],
+          "serials": [
+            "FH-POD-1001",
+            "FH-POD-1002"
+          ],
+          "bill_of_lading": "BL-LAX-2607-3310（虚构）",
+          "shipped_event_id": "ev-2607-ship-a",
+          "shipped_at": "2026-05-06T10:00:00Z",
+          "arrived_event_id": "ev-2607-arrive-a",
+          "arrived_at": "2026-06-01T09:00:00Z"
+        },
+        {
+          "shipment_id": "SHP-2607-2",
+          "seq": 2,
+          "container_nos": [
+            "CTLU-7654322"
+          ],
+          "serials": [
+            "FH-POD-1003"
+          ],
+          "bill_of_lading": "BL-LAX-2607-3452（虚构）",
+          "shipped_event_id": "ev-2607-ship-b",
+          "shipped_at": "2026-07-03T10:00:00Z",
+          "arrived_event_id": "ev-2607-arrive-b",
+          "arrived_at": "2026-07-25T09:00:00Z"
+        }
+      ],
+      "exceptions": [
+        {
+          "exception_id": "EX-DMG-2607-02",
+          "type": "transport_damage",
+          "serial_number": "FH-POD-1002",
+          "opened_event_id": "ev-2607-dmg-open",
+          "opened_at": "2026-06-03T11:00:00Z",
+          "closed": true,
+          "closed_event_id": "ev-2607-dmg-close",
+          "closed_at": "2026-06-20T16:00:00Z",
+          "responsibility": "carrier（海运段）",
+          "resolution": "开柜发现外墙板凹损，凭照片与提单向承运人理赔；洛杉矶站更换墙板后复验合格。"
+        }
+      ],
+      "acceptance": {
+        "acceptance_event_id": "ev-2607-accept-done",
+        "signed_by_customer": "Rachel Kim",
+        "signed_at": "2026-08-01T17:00:00Z",
+        "completed_at": "2026-08-02T10:00:00Z",
+        "items": [
+          {
+            "serial_number": "FH-POD-1001",
+            "revision": 1,
+            "checks": [
+              {
+                "module_id": "M-ELEC",
+                "option_id": "E-US",
+                "result": "matched",
+                "note": "更换后端子排复检留档"
+              },
+              {
+                "module_id": "M-WIND",
+                "option_id": "W-HUR",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-INT",
+                "option_id": "I-STD",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-SMART",
+                "option_id": "S-V2",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-PV",
+                "option_id": "P-PKG",
+                "result": "matched"
+              }
+            ]
+          },
+          {
+            "serial_number": "FH-POD-1002",
+            "revision": 1,
+            "checks": [
+              {
+                "module_id": "M-ELEC",
+                "option_id": "E-US",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-WIND",
+                "option_id": "W-HUR",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-INT",
+                "option_id": "I-STD",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-SMART",
+                "option_id": "S-V2",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-PV",
+                "option_id": "P-PKG",
+                "result": "matched",
+                "note": "运输损伤墙板已理赔更换"
+              }
+            ]
+          },
+          {
+            "serial_number": "FH-POD-1003",
+            "revision": 1,
+            "checks": [
+              {
+                "module_id": "M-ELEC",
+                "option_id": "E-US",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-WIND",
+                "option_id": "W-HUR",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-INT",
+                "option_id": "I-STD",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-SMART",
+                "option_id": "S-V2",
+                "result": "matched"
+              },
+              {
+                "module_id": "M-PV",
+                "option_id": "P-PKG",
+                "result": "matched"
+              }
+            ]
+          }
+        ]
+      },
+      "events": [
+        {
+          "event_id": "ev-2607-inq",
+          "at": "2026-02-01T07:45:00Z",
+          "stage": "inquiry",
+          "type": "inquiry_received",
+          "actor": "林汐 E1003",
+          "role": "sales",
+          "decided_by": "Rachel Kim",
+          "summary": "收到3套太空舱询盘，目的国美国。",
+          "refs": {
+            "inquiry_id": "INQ-2607"
+          }
+        },
+        {
+          "event_id": "ev-2607-quote",
+          "at": "2026-02-02T16:00:00Z",
+          "stage": "quotation",
+          "type": "quotation_issued",
+          "actor": "林汐 E1003",
+          "role": "sales",
+          "decided_by": "林汐 E1003",
+          "summary": "出具美元报价，2月20日到期。",
+          "refs": {
+            "quotation_id": "Q-2607"
+          }
+        },
+        {
+          "event_id": "ev-2607-accept",
+          "at": "2026-02-05T19:30:00Z",
+          "stage": "quotation",
+          "type": "quotation_accepted",
+          "actor": "Rachel Kim",
+          "role": "customer",
+          "decided_by": "Rachel Kim",
+          "summary": "客户在报价有效期内确认。",
+          "refs": {
+            "quotation_id": "Q-2607",
+            "currency": "USD"
+          }
+        },
+        {
+          "event_id": "ev-2607-rev1",
+          "at": "2026-02-08T09:00:00Z",
+          "stage": "configuration",
+          "type": "revision_signed",
+          "actor": "周衡 E2041",
+          "role": "engineering",
+          "decided_by": "Rachel Kim / 周衡 E2041",
+          "summary": "配置版本1签署：UL电气、飓风件、标准内装、二代中控、光伏包。",
+          "refs": {
+            "revision": 1
+          }
+        },
+        {
+          "event_id": "ev-2607-cap",
+          "at": "2026-02-09T10:05:00Z",
+          "stage": "procurement",
+          "type": "capacity_contention_resolved",
+          "actor": "赵启 E4007",
+          "role": "procurement",
+          "decided_by": "赵启 E4007",
+          "summary": "二代中控Q2槽位6套已被ORD-2601先锁4套、余2套；本单2套锁Q2、1套锁Q3窗口，客户书面确认分两批交付，不按销售口头5月齐套承诺执行。",
+          "refs": {
+            "lock_ids": [
+              "LOCK-V2-2607-A",
+              "LOCK-V2-2607-B"
+            ]
+          }
+        },
+        {
+          "event_id": "ev-2607-cert",
+          "at": "2026-02-15T10:20:00Z",
+          "stage": "compliance",
+          "type": "certificates_approved",
+          "actor": "许安 E3018",
+          "role": "compliance",
+          "decided_by": "许安 E3018",
+          "summary": "UL/ETL与IBC结构认证评审通过。",
+          "refs": {}
+        },
+        {
+          "event_id": "ev-2607-po",
+          "at": "2026-02-16T08:05:00Z",
+          "stage": "procurement",
+          "type": "purchase_orders_issued",
+          "actor": "赵启 E4007",
+          "role": "procurement",
+          "decided_by": "赵启 E4007",
+          "summary": "按锁定产能向智核下单3套（2套Q2、1套Q3），向恒固下单飓风件3套。",
+          "refs": {
+            "po_ids": [
+              "PO-2607-01",
+              "PO-2607-02"
+            ]
+          }
+        },
+        {
+          "event_id": "ev-2607-prod-a",
+          "at": "2026-03-20T08:30:00Z",
+          "stage": "production",
+          "type": "production_released",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "第一批按版本1投产2套并冻结。",
+          "refs": {
+            "batch_id": "BAT-2607-A",
+            "revision": 1,
+            "quantity": 2
+          }
+        },
+        {
+          "event_id": "ev-2607-mint-1001",
+          "at": "2026-04-18T10:00:00Z",
+          "stage": "qc",
+          "type": "serial_minted",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "耐压击穿，更换端子排复检合格后打刻。",
+          "serial_number": "FH-POD-1001"
+        },
+        {
+          "event_id": "ev-2607-mint-1002",
+          "at": "2026-04-19T10:00:00Z",
+          "stage": "qc",
+          "type": "serial_minted",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "质检合格，序列号打刻。",
+          "serial_number": "FH-POD-1002"
+        },
+        {
+          "event_id": "ev-2607-load-a",
+          "at": "2026-05-04T15:00:00Z",
+          "stage": "loading",
+          "type": "container_sealed",
+          "actor": "何帆 E6020",
+          "role": "logistics",
+          "decided_by": "何帆 E6020",
+          "summary": "第一批2套装柜封箱（版本1冻结）。",
+          "refs": {
+            "container_no": "CTLU-7654321",
+            "revision": 1
+          }
+        },
+        {
+          "event_id": "ev-2607-ship-a",
+          "at": "2026-05-06T10:00:00Z",
+          "stage": "shipping",
+          "type": "shipped",
+          "actor": "何帆 E6020",
+          "role": "logistics",
+          "decided_by": "何帆 E6020",
+          "summary": "第一批海运离港。",
+          "refs": {
+            "shipment_id": "SHP-2607-1"
+          }
+        },
+        {
+          "event_id": "ev-2607-cert-access",
+          "at": "2026-05-20T18:05:00Z",
+          "stage": "compliance",
+          "type": "certificate_accessed",
+          "actor": "Mike Donovan MD07",
+          "role": "service_station",
+          "decided_by": "Mike Donovan MD07",
+          "summary": "洛杉矶站为清关与县建筑许可调阅证书，访问已留痕。",
+          "refs": {
+            "certificate_ids": [
+              "CERT-UL-2607",
+              "CERT-IBC-2607"
+            ]
+          }
+        },
+        {
+          "event_id": "ev-2607-arrive-a",
+          "at": "2026-06-01T09:00:00Z",
+          "stage": "arrival",
+          "type": "arrived",
+          "actor": "Mike Donovan MD07",
+          "role": "service_station",
+          "decided_by": "Mike Donovan MD07",
+          "summary": "第一批抵达洛杉矶。",
+          "refs": {
+            "shipment_id": "SHP-2607-1"
+          }
+        },
+        {
+          "event_id": "ev-2607-dmg-open",
+          "at": "2026-06-03T11:00:00Z",
+          "stage": "exception",
+          "type": "transport_damage_opened",
+          "actor": "Mike Donovan MD07",
+          "role": "service_station",
+          "decided_by": "Mike Donovan MD07",
+          "summary": "FH-POD-1002外墙板开柜可见凹损，拍照挂起并报承运人。",
+          "serial_number": "FH-POD-1002"
+        },
+        {
+          "event_id": "ev-2607-prod-b",
+          "at": "2026-06-15T08:30:00Z",
+          "stage": "production",
+          "type": "production_released",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "第二批按版本1投产1套并冻结（Q3中控到货）。",
+          "refs": {
+            "batch_id": "BAT-2607-B",
+            "revision": 1,
+            "quantity": 1
+          }
+        },
+        {
+          "event_id": "ev-2607-dmg-close",
+          "at": "2026-06-20T16:00:00Z",
+          "stage": "exception",
+          "type": "transport_damage_closed",
+          "actor": "Mike Donovan MD07",
+          "role": "service_station",
+          "decided_by": "赵启 E4007",
+          "summary": "承运人理赔确认，墙板更换复验合格。",
+          "serial_number": "FH-POD-1002"
+        },
+        {
+          "event_id": "ev-2607-mint-1003",
+          "at": "2026-06-22T10:00:00Z",
+          "stage": "qc",
+          "type": "serial_minted",
+          "actor": "孙磊 E5012",
+          "role": "qc",
+          "decided_by": "孙磊 E5012",
+          "summary": "质检合格，序列号打刻。",
+          "serial_number": "FH-POD-1003"
+        },
+        {
+          "event_id": "ev-2607-load-b",
+          "at": "2026-07-01T15:00:00Z",
+          "stage": "loading",
+          "type": "container_sealed",
+          "actor": "何帆 E6020",
+          "role": "logistics",
+          "decided_by": "何帆 E6020",
+          "summary": "第二批1套装柜封箱。",
+          "refs": {
+            "container_no": "CTLU-7654322",
+            "revision": 1
+          }
+        },
+        {
+          "event_id": "ev-2607-ship-b",
+          "at": "2026-07-03T10:00:00Z",
+          "stage": "shipping",
+          "type": "shipped",
+          "actor": "何帆 E6020",
+          "role": "logistics",
+          "decided_by": "何帆 E6020",
+          "summary": "第二批海运离港。",
+          "refs": {
+            "shipment_id": "SHP-2607-2"
+          }
+        },
+        {
+          "event_id": "ev-2607-arrive-b",
+          "at": "2026-07-25T09:00:00Z",
+          "stage": "arrival",
+          "type": "arrived",
+          "actor": "Mike Donovan MD07",
+          "role": "service_station",
+          "decided_by": "Mike Donovan MD07",
+          "summary": "第二批抵达洛杉矶。",
+          "refs": {
+            "shipment_id": "SHP-2607-2"
+          }
+        },
+        {
+          "event_id": "ev-2607-accept-done",
+          "at": "2026-08-02T10:00:00Z",
+          "stage": "acceptance",
+          "type": "acceptance_completed",
+          "actor": "Mike Donovan MD07",
+          "role": "service_station",
+          "decided_by": "Rachel Kim",
+          "summary": "两批3套全部按版本1逐项核对相符，客户08-01签署，验收完成。",
+          "refs": {
+            "signed_at": "2026-08-01T17:00:00Z"
+          }
+        }
+      ]
+    }
+  ]
+}

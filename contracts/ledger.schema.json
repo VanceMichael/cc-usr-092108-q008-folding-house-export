@@ -1,0 +1,695 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "折叠房跨境配置交付台账",
+  "description": "从询盘到保修的连续交付记录。事件只追加，配置版本不可变，序列号贯穿数字线程。",
+  "type": "object",
+  "required": [
+    "ledger_id",
+    "domain",
+    "version",
+    "sample_id",
+    "generated_at",
+    "modules",
+    "product_families",
+    "suppliers",
+    "service_stations",
+    "customers",
+    "capacity_slots",
+    "orders"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "ledger_id": { "type": "string", "minLength": 1 },
+    "domain": { "const": "folding-house-export" },
+    "version": { "type": "integer", "minimum": 1 },
+    "sample_id": { "type": "string", "minLength": 1 },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["module_id", "name", "category", "options"],
+        "additionalProperties": false,
+        "properties": {
+          "module_id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "category": { "enum": ["electrical", "structure", "interior", "smart"] },
+          "options": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["option_id", "name", "unit_prices", "weight_kg", "lead_time_days", "markets"],
+              "additionalProperties": false,
+              "properties": {
+                "option_id": { "type": "string", "minLength": 1 },
+                "name": { "type": "string", "minLength": 1 },
+                "unit_prices": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": ["currency", "amount"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+                      "amount": { "type": "number", "minimum": 0 }
+                    }
+                  }
+                },
+                "weight_kg": { "type": "number", "minimum": 0 },
+                "lead_time_days": { "type": "integer", "minimum": 0 },
+                "markets": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "product_families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["family_id", "name", "models"],
+        "additionalProperties": false,
+        "properties": {
+          "family_id": { "type": "string" },
+          "name": { "type": "string" },
+          "models": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["model_id", "name"],
+              "additionalProperties": false,
+              "properties": {
+                "model_id": { "type": "string" },
+                "name": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "suppliers": { "$ref": "#/$defs/namedActors" },
+    "service_stations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["station_id", "name", "country"],
+        "additionalProperties": false,
+        "properties": {
+          "station_id": { "type": "string" },
+          "name": { "type": "string" },
+          "country": { "type": "string" }
+        }
+      }
+    },
+    "customers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["customer_id", "name", "country"],
+        "additionalProperties": false,
+        "properties": {
+          "customer_id": { "type": "string" },
+          "name": { "type": "string" },
+          "country": { "type": "string" }
+        }
+      }
+    },
+    "capacity_slots": {
+      "type": "array",
+      "description": "供应商已确认的模块产能槽",
+      "items": {
+        "type": "object",
+        "required": ["slot_id", "supplier_id", "module_id", "option_id", "window_start", "window_end", "confirmed_qty"],
+        "additionalProperties": false,
+        "properties": {
+          "slot_id": { "type": "string" },
+          "supplier_id": { "type": "string" },
+          "module_id": { "type": "string" },
+          "option_id": { "type": "string" },
+          "window_start": { "type": "string", "format": "date" },
+          "window_end": { "type": "string", "format": "date" },
+          "confirmed_qty": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "orders": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/order" }
+    }
+  },
+  "$defs": {
+    "namedActors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" }
+        }
+      }
+    },
+    "money": {
+      "type": "object",
+      "required": ["currency", "amount"],
+      "additionalProperties": false,
+      "properties": {
+        "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+        "amount": { "type": "number" }
+      }
+    },
+    "order": {
+      "type": "object",
+      "required": [
+        "order_id",
+        "customer_id",
+        "destination_country",
+        "family_id",
+        "model_id",
+        "quantity",
+        "inquiry",
+        "quotation",
+        "configuration_revisions",
+        "certificates",
+        "capacity_locks",
+        "purchase_orders",
+        "batches",
+        "containers",
+        "shipments",
+        "acceptance",
+        "events"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "order_id": { "type": "string", "minLength": 1 },
+        "customer_id": { "type": "string" },
+        "destination_country": { "type": "string", "minLength": 2 },
+        "family_id": { "type": "string" },
+        "model_id": { "type": "string" },
+        "quantity": { "type": "integer", "minimum": 1 },
+        "sales_owner": { "type": "string" },
+        "inquiry": {
+          "type": "object",
+          "required": ["inquiry_id", "received_at", "requirements"],
+          "additionalProperties": false,
+          "properties": {
+            "inquiry_id": { "type": "string" },
+            "received_at": { "type": "string", "format": "date-time" },
+            "requirements": { "type": "string", "minLength": 1 }
+          }
+        },
+        "quotation": {
+          "type": "object",
+          "required": ["quotation_id", "lines", "accepted"],
+          "additionalProperties": false,
+          "properties": {
+            "quotation_id": { "type": "string" },
+            "lines": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["currency", "unit_price", "valid_until"],
+                "additionalProperties": false,
+                "properties": {
+                  "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+                  "unit_price": { "type": "number", "minimum": 0 },
+                  "valid_until": { "type": "string", "format": "date-time" }
+                }
+              }
+            },
+            "accepted": {
+              "type": "object",
+              "required": ["currency", "accepted_at"],
+              "additionalProperties": false,
+              "properties": {
+                "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+                "accepted_at": { "type": "string", "format": "date-time" }
+              }
+            }
+          }
+        },
+        "configuration_revisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "revision",
+              "status",
+              "options",
+              "totals",
+              "electrical",
+              "wind_seismic_rating",
+              "interior"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "revision": { "type": "integer", "minimum": 1 },
+              "status": { "enum": ["draft", "signed", "superseded"] },
+              "options": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["module_id", "option_id", "quantity"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "module_id": { "type": "string" },
+                    "option_id": { "type": "string" },
+                    "quantity": { "type": "integer", "minimum": 1 }
+                  }
+                }
+              },
+              "totals": {
+                "type": "object",
+                "required": ["price", "weight_kg", "earliest_delivery"],
+                "additionalProperties": false,
+                "properties": {
+                  "price": { "type": "array", "items": { "$ref": "#/$defs/money" }, "minItems": 1 },
+                  "weight_kg": { "type": "number", "minimum": 0 },
+                  "earliest_delivery": { "type": "string", "format": "date" }
+                }
+              },
+              "electrical": {
+                "type": "object",
+                "required": ["voltage", "frequency_hz", "standard", "plugs"],
+                "additionalProperties": false,
+                "properties": {
+                  "voltage": { "type": "string" },
+                  "frequency_hz": { "type": "integer" },
+                  "standard": { "type": "string" },
+                  "plugs": { "type": "string" }
+                }
+              },
+              "wind_seismic_rating": {
+                "type": "object",
+                "required": ["wind_kph", "seismic"],
+                "additionalProperties": false,
+                "properties": {
+                  "wind_kph": { "type": "integer" },
+                  "seismic": { "type": "string" }
+                }
+              },
+              "interior": { "type": "string", "minLength": 1 },
+              "signed_by": { "type": "string" },
+              "signed_at": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "change_orders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "change_id",
+              "from_revision",
+              "to_revision",
+              "reason",
+              "affected_parts",
+              "price_delta",
+              "weight_delta_kg",
+              "delivery_delta_days",
+              "requested_by",
+              "approved_by_customer",
+              "approved_by_engineering",
+              "approved_at"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "change_id": { "type": "string" },
+              "from_revision": { "type": "integer" },
+              "to_revision": { "type": "integer" },
+              "reason": { "type": "string" },
+              "affected_parts": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["action", "module_id", "option_id"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "action": { "enum": ["add", "remove", "replace"] },
+                    "module_id": { "type": "string" },
+                    "option_id": { "type": "string" }
+                  }
+                }
+              },
+              "price_delta": { "type": "array", "items": { "$ref": "#/$defs/money" } },
+              "weight_delta_kg": { "type": "number" },
+              "delivery_delta_days": { "type": "integer" },
+              "requested_by": { "type": "string" },
+              "approved_by_customer": { "type": "string" },
+              "approved_by_engineering": { "type": "string" },
+              "approved_at": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "certificates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["certificate_id", "type", "country", "status", "reviewed_by", "reviewed_at", "access_grants"],
+            "additionalProperties": false,
+            "properties": {
+              "certificate_id": { "type": "string" },
+              "type": { "type": "string" },
+              "country": { "type": "string" },
+              "status": { "enum": ["approved", "pending", "rejected"] },
+              "reviewed_by": { "type": "string" },
+              "reviewed_at": { "type": "string", "format": "date-time" },
+              "access_grants": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["actor", "role", "at", "purpose"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "actor": { "type": "string" },
+                    "role": { "type": "string" },
+                    "at": { "type": "string", "format": "date-time" },
+                    "purpose": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "capacity_locks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["lock_id", "slot_id", "module_id", "option_id", "qty", "status", "created_at"],
+            "additionalProperties": false,
+            "properties": {
+              "lock_id": { "type": "string" },
+              "slot_id": { "type": "string" },
+              "module_id": { "type": "string" },
+              "option_id": { "type": "string" },
+              "qty": { "type": "integer", "minimum": 1 },
+              "status": { "enum": ["active", "released"] },
+              "created_at": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "purchase_orders": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["po_id", "supplier_id", "lines", "issued_at"],
+            "additionalProperties": false,
+            "properties": {
+              "po_id": { "type": "string" },
+              "supplier_id": { "type": "string" },
+              "lines": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["module_id", "option_id", "qty"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "module_id": { "type": "string" },
+                    "option_id": { "type": "string" },
+                    "qty": { "type": "integer", "minimum": 1 }
+                  }
+                }
+              },
+              "issued_at": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "batches": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["batch_id", "revision", "quantity", "production_released_at", "released_by", "release_event_id", "units"],
+            "additionalProperties": false,
+            "properties": {
+              "batch_id": { "type": "string" },
+              "revision": { "type": "integer", "minimum": 1 },
+              "quantity": { "type": "integer", "minimum": 1 },
+              "production_released_at": { "type": "string", "format": "date-time" },
+              "released_by": { "type": "string" },
+              "release_event_id": { "type": "string" },
+              "units": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": ["serial_number", "minted_event_id", "qc_items"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "serial_number": {
+                      "type": "string",
+                      "pattern": "^FH-[A-Z0-9]+-[0-9]{4}$"
+                    },
+                    "minted_event_id": { "type": "string" },
+                    "qc_items": {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "object",
+                        "required": ["qc_id", "item", "result", "closed"],
+                        "additionalProperties": false,
+                        "properties": {
+                          "qc_id": { "type": "string" },
+                          "item": { "type": "string" },
+                          "result": { "enum": ["pass", "concession", "reject"] },
+                          "closed": { "type": "boolean" },
+                          "note": { "type": "string" },
+                          "approved_by": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "containers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["container_no", "revision", "sealed_at", "loading_event_id", "serials"],
+            "additionalProperties": false,
+            "properties": {
+              "container_no": { "type": "string" },
+              "revision": { "type": "integer", "minimum": 1 },
+              "sealed_at": { "type": "string", "format": "date-time" },
+              "loading_event_id": { "type": "string" },
+              "serials": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+            }
+          }
+        },
+        "shipments": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "shipment_id",
+              "seq",
+              "container_nos",
+              "serials",
+              "bill_of_lading",
+              "shipped_event_id",
+              "shipped_at",
+              "arrived_event_id",
+              "arrived_at"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "shipment_id": { "type": "string" },
+              "seq": { "type": "integer", "minimum": 1 },
+              "container_nos": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+              "serials": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+              "bill_of_lading": { "type": "string" },
+              "shipped_event_id": { "type": "string" },
+              "shipped_at": { "type": "string", "format": "date-time" },
+              "arrived_event_id": { "type": "string" },
+              "arrived_at": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "exceptions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "exception_id",
+              "type",
+              "serial_number",
+              "opened_event_id",
+              "opened_at",
+              "closed",
+              "responsibility",
+              "resolution"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "exception_id": { "type": "string" },
+              "type": { "enum": ["inspection_failure", "transport_damage", "permit_delay"] },
+              "serial_number": { "type": "string" },
+              "opened_event_id": { "type": "string" },
+              "opened_at": { "type": "string", "format": "date-time" },
+              "closed": { "type": "boolean" },
+              "closed_event_id": { "type": ["string", "null"] },
+              "closed_at": { "type": ["string", "null"], "format": "date-time" },
+              "responsibility": { "type": "string" },
+              "resolution": { "type": "string" }
+            }
+          }
+        },
+        "offline_installs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "offline_id",
+              "shipment_id",
+              "serials",
+              "station_id",
+              "captured_at",
+              "captured_by",
+              "signature_fingerprint",
+              "sync_event_id",
+              "synced_at",
+              "reconciled_at"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "offline_id": { "type": "string" },
+              "shipment_id": { "type": "string" },
+              "serials": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+              "station_id": { "type": "string" },
+              "captured_at": { "type": "string", "format": "date-time" },
+              "captured_by": { "type": "string" },
+              "signature_fingerprint": { "type": "string", "pattern": "^[0-9a-f]{16,}$" },
+              "sync_event_id": { "type": ["string", "null"] },
+              "synced_at": { "type": ["string", "null"], "format": "date-time" },
+              "reconciled_at": { "type": ["string", "null"], "format": "date-time" }
+            }
+          }
+        },
+        "acceptance": {
+          "type": "object",
+          "required": ["acceptance_event_id", "signed_by_customer", "signed_at", "completed_at", "items"],
+          "additionalProperties": false,
+          "properties": {
+            "acceptance_event_id": { "type": "string" },
+            "signed_by_customer": { "type": "string" },
+            "signed_at": { "type": "string", "format": "date-time" },
+            "completed_at": { "type": "string", "format": "date-time" },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["serial_number", "revision", "checks"],
+                "additionalProperties": false,
+                "properties": {
+                  "serial_number": { "type": "string" },
+                  "revision": { "type": "integer", "minimum": 1 },
+                  "checks": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                      "type": "object",
+                      "required": ["module_id", "option_id", "result"],
+                      "additionalProperties": false,
+                      "properties": {
+                        "module_id": { "type": "string" },
+                        "option_id": { "type": "string" },
+                        "result": { "enum": ["matched", "defect"] },
+                        "note": { "type": "string" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "warranty_claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["claim_id", "serial_number", "opened_event_id", "opened_at", "issue", "responsibility", "resolution", "status"],
+            "additionalProperties": false,
+            "properties": {
+              "claim_id": { "type": "string" },
+              "serial_number": { "type": "string" },
+              "opened_event_id": { "type": "string" },
+              "opened_at": { "type": "string", "format": "date-time" },
+              "issue": { "type": "string" },
+              "responsibility": { "enum": ["supplier", "manufacturing", "carrier", "installation", "customer"] },
+              "resolution": { "type": "string" },
+              "status": { "enum": ["open", "closed"] }
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["event_id", "at", "stage", "type", "actor", "role", "decided_by", "summary"],
+            "additionalProperties": false,
+            "properties": {
+              "event_id": { "type": "string" },
+              "at": { "type": "string", "format": "date-time" },
+              "stage": {
+                "enum": [
+                  "inquiry",
+                  "quotation",
+                  "configuration",
+                  "compliance",
+                  "procurement",
+                  "production",
+                  "qc",
+                  "folding",
+                  "loading",
+                  "shipping",
+                  "arrival",
+                  "installation",
+                  "acceptance",
+                  "warranty",
+                  "exception"
+                ]
+              },
+              "type": { "type": "string" },
+              "actor": { "type": "string" },
+              "role": {
+                "enum": [
+                  "customer",
+                  "sales",
+                  "engineering",
+                  "compliance",
+                  "procurement",
+                  "supplier",
+                  "qc",
+                  "logistics",
+                  "service_station"
+                ]
+              },
+              "decided_by": { "type": "string" },
+              "summary": { "type": "string" },
+              "serial_number": { "type": "string" },
+              "refs": { "type": "object" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
